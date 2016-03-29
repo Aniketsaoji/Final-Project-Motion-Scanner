@@ -37,6 +37,7 @@ We could of opted to use the cheaper and easier to use Andruino uno (which we al
 #### PIR sensors
 
 These sensors are connected to the intel edison.
+
 <img src="http://img.dxcdn.com/productimages/sku_241158_3.jpg" width="250" height="250" /> <img src="http://robu.in/wp-content/uploads/2016/02/hc-sr501-labelled-alt.png" width="266" height="183" />
 
 ### Software
