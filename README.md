@@ -1,7 +1,11 @@
-# The Motion-izer
+# The  Anti-Tickler
 
 This is an interactive web page that shows movement within our house. An Intel Edison collects motion data from motion sensors within our house, and updates a database every 5 seconds.
 This data is then applied to a 3d Model of our house<sup>i</sup> and is rendered in WebGL as a color coded house.  
+
+## Motivation
+
+In late February a string of break-ins occurred in the Brighton off-campus area heavily populated by BC students. Being tech-savy students we decided to use this project to install a cool motion sensor project in our house. This is that project.
 
 ### Authors
 
