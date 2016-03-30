@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // Author       : Nicholai Mitchko
 // Date         : 3/16/2016
 // File         : main.js
@@ -39,11 +40,7 @@ var config = {
 
 // After setup open ssh connection
 var server = tunnel(config, function (error, result) {
-    if(error){
-
-        process.quit();
-    }
-    console.log('connected');
+    console.log("Connected to CSCILAB");
 });
 
 // Once tunneled setup the database connection
@@ -56,6 +53,7 @@ var connection = mysql.createConnection({
 
 // Connect to the DB
 connection.connect();
+console.log("Connected to database");
 
 // Variable to hold movement values
 var zones = new Array(false, false, false, false, false);
@@ -68,11 +66,9 @@ function updateDatabase() {
         ' zone4='+(zones[3] ? 'TRUE': 'FALSE') +
         ' zone5='+(zones[4] ? 'TRUE': 'FALSE') +
         ' where id=1', function (err, rows, fields) {
-        if(err){
-            console.log("Error: Bad Value Update, Shutting Down");
-            end();
-        }
+        console.log("Updated Database");
     });
+    insertIntoHistory();
     resetZones();
 }
 
@@ -80,25 +76,17 @@ function updateDatabase() {
 function insertIntoHistory(){
     var id = "";
     connection.query('SELECT id from mitchko.motionHistory order by motionTime asc limit 1', function(err, rows, fields){
-        if(!err){
-            id = rows[0][0];
-        } else {
-            console.log("Error: couldn't Access motion History");
-            end();
-        }
-    });
-    connection.query('INSERT INTO mitchko.motionHistory (id, bitId, motionTime) VALUES()',
-        function (err, rows, fields){
-            if(err){
-                console.log("Error: Bad Motion Insert, Shutting Down");
-                end();
-            }
+        id = rows[0]['id'];
+        console.log(id);
+        connection.query('update mitchko.motionHistory SET zones=b\'' + (zones[0] ? '1':'0')+ (zones[1] ? '1':'0')+ (zones[2] ? '1':'0')+ (zones[3] ? '1':'0') + '\', motionTime=now() where id='+id,
+            function (err, rows, fields){
+            });
     });
 }
 
 // Reset Movement Data, called in zones
 function resetZones() {
-    zones = new Array(false, false, false, false, false);
+    zones = [false, false, false, false, false];
 }
 
 // Reads the IO pin for motion values from the sensor
@@ -106,44 +94,14 @@ function checkForMotion() {
     // If the zone had motion in it (zone[n] == true) keep the zone true
     // OR
     // If the motion sensor shows motion (motionInput1.read() == 1)
-    zones[0] = zones[0] == true || motionInput1.read() == 1 ? true : false;
-    zones[1] = zones[1] == true || motionInput2.read() == 1 ? true : false;
-    zones[2] = zones[2] == true || motionInput3.read() == 1 ? true : false;
-    zones[3] = zones[3] == true || motionInput4.read() == 1 ? true : false;
-    zones[4] = zones[4] == true || motionInput5.read() == 1 ? true : false;
+    zones[0] = zones[0]  || motionInput1.read() == 1 ;
+    zones[1] = zones[1]  || motionInput2.read() == 1 ;
+    zones[2] = zones[2]  || motionInput3.read() == 1 ;
+    zones[3] = zones[3]  || motionInput4.read() == 1 ;
+    zones[4] = zones[4]  || motionInput5.read() == 1 ;
 }
 // Give the Sensors 15 seconds to warm up :)
 setTimeout(function () {
     setInterval(checkForMotion, 5);     // Run Motion check every 5 milliseconds
     setInterval(updateDatabase, 15000);  // Update the database every 15 seconds, (15 second Motion-Window)
 }, 15000);
-
-// The following code is for proper shutdown functions regarding SSH & SQL Tunneling
-
-function end() {
-    /*    lcd.clear();
-     lcd.close();*/
-    connection.end(function (err) {
-        if(err){
-            console.log("Error: Couldn't close MySQL connection");
-        }
-        // Closes the mysql connection
-    });
-    server.close();
-    process.quit();
-}
-
-process.on('SIGINT', function () {
-    end();
-});
-
-process.on('SIGTSTP', function () {
-    end();
-});
-
-/* LCD Code if I want to add it
- lcd.on('ready', function(){
- lcd.setCursor(16,0);
- lcd.autoscrool();
- lcd.print('Hello', 0);
- });*/

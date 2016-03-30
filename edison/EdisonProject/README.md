@@ -32,24 +32,26 @@ Important App Files
 * README.md
 
 <div id="Install"></div>
-Installing & Running  
---------------------
+
+Installing & Running
+-------------------------
 
 1. Make Sure Node is Installed
 ```bash
-    opkg install node
+    1. opkg install node
 ```
 2. Copy to Edison Device
 ```bash
-    scp /edison/EdisonProject/* root@edison.local:/node_app_slot/
+    1. scp /edison/EdisonProject/* root@edison.local:/node_app_slot/
 ```
 3. Install Dependencies
 ```bash
-    cd /node_app_slot
-    npm install
+    1. cd /node_app_slot
+    2. npm install
 ```
 4. Restart Node
 ```bash
-    cd /node_app_slot
-    npm start
+    1. cd /node_app_slot
+    2. nohup node main.js &
+    # the nohup command in line 2 ignores the hangup call in the ssh terminal so it runs until killed manually
 ```

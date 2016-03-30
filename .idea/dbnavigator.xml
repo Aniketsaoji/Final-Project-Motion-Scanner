@@ -23,7 +23,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5">
+        <schema name="mitchko" object-types="column, constraint, function, index, procedure, table, dataset trigger, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5">
@@ -37,6 +41,11 @@ UPDATE mitchko.motion SET zone1=TRUE where id=1;]]></console>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-list connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" dataset="mitchko.motion" active-filter-id="EMPTY_FILTER" />
     <filter-list connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" dataset="mitchko.boringclub" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" dataset="mitchko.motionHistory" active-filter-id="bd0457ee-1fb8-43d3-837e-3aa620954013">
+      <filter id="bd0457ee-1fb8-43d3-837e-3aa620954013" name="Filter" temporary="false" custom-name="false" type="custom">
+        <condition><![CDATA[1=1 order by motionTime desc]]></condition>
+      </filter>
+    </filter-list>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
