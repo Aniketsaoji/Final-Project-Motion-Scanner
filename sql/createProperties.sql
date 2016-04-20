@@ -5,6 +5,6 @@ create table Properties(
     StreetAddress varchar(255) NOT NULL,
     ZipCode int NOT NULL,
     TextAlerts BOOL NOT NULL DEFAULT TRUE,
-    AssociatedAccount int,
+    AssociatedAccountID int,
     PRIMARY KEY (propertyID)
 );

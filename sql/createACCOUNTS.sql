@@ -7,5 +7,6 @@ create table ACCOUNTS(
     FirstName varchar(255),
     password BIT(128) NOT NULL,
     passwordSalt BIT(64) NOT NULL,
+    isAdmin bool not null default 0,
     PRIMARY KEY (ID)
 );
