@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Boring Club</title>
+    <title>AntiTickler Security</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/jquery-2.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dynatable.js"></script>
     <script src="js/main.js"></script>
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/jquery.dynatable.css" rel="stylesheet">
 </head>
 <body>
 <div class="navbar navbar-default">
@@ -42,8 +44,15 @@
             <h1>Movement</h1>
         </div>
         <div class="bs-component">
-            <div id="movement">
-            </div>
+            <table class="table table-bordered" id="movement">
+                <thead>
+                <tr>
+                <th data-dynatable-column="Movement">Movement</th>
+                <th data-dynatable-column="Time">Time</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
     </div>
 </div>

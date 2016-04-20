@@ -4,12 +4,25 @@
 
 $(document).ready(function(){
     updateValues();
-    setInterval(updateValues, 5000);
 });
 
 function updateValues (){
-    $.ajax({url: "main.php", success: function(result){
-        console.log(result);
-        $('#movement').html(result);
-    }});
+    $.ajax({
+        url: 'main.php',
+        success: function (data) {
+            $('#movement').dynatable({
+                features: {
+                    paginate: true,
+                    recordCount: true
+                },
+                dataset: {
+                    records: JSON.parse(data)
+                },
+                params: {
+                    records: '_root'
+                }
+            });
+        }
+    });
+
 }

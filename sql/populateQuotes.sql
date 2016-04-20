@@ -1,0 +1,1 @@
+insert into Quotes VALUES(3.5);

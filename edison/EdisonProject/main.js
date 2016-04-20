@@ -77,7 +77,6 @@ function insertIntoHistory(){
     var id = "";
     connection.query('SELECT id from mitchko.motionHistory order by motionTime asc limit 1', function(err, rows, fields){
         id = rows[0]['id'];
-        console.log(id);
         connection.query('update mitchko.motionHistory SET zones=b\'' + (zones[0] ? '1':'0')+ (zones[1] ? '1':'0')+ (zones[2] ? '1':'0')+ (zones[3] ? '1':'0') + '\', motionTime=now() where id='+id,
             function (err, rows, fields){
             });
