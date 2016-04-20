@@ -28,14 +28,14 @@ User
 
 ### Pre-condition
 
-User is Authenticated
-User's has .json formatted 3d rendering of house / property
-User inputs conditions for Text alerts
+1. User is Authenticated
+2. User's has .json formatted 3d rendering of house / property
+3. User inputs conditions for Text alerts
 
 ### Post-condition
 
-Property Table is updated
-Property.json file is uploaded and named to ~propertyID~.json
+1. Property Table is updated
+2. Property.json file is uploaded and named to ~propertyID~.json
 
 ### Queries
 
@@ -51,8 +51,8 @@ User
 
 ### Pre-condition
 
-User is Authenticated
-User has motion detectors installed at property by Technicial
+1. User is Authenticated
+2. User has motion detectors installed at property by Technicial
 
 ### Post-condition
 
@@ -93,8 +93,8 @@ User / Administrator
 
 ### Pre-condition
 
-User / Administrator is Authenticated
-User / Administrator requests to see status
+1. User / Administrator is Authenticated
+2. User / Administrator requests to see status
 
 ### Post-condition
 
@@ -119,8 +119,8 @@ User is Authenticated
 
 ### Post-condition
 
-delete entry Properties table
-delete Rendering file from storage
+1. delete entry Properties table
+2. delete Rendering file from storage
 
 ### Queries
 
@@ -140,8 +140,8 @@ User is Authenticated
 
 ### Post-condition
 
-remove properties from Properties table
-remove user from ACCOUNTS table
+1. remove properties from Properties table
+2. remove user from ACCOUNTS table
 
 ### Queries
 
@@ -162,8 +162,8 @@ User enters sqft of covered property
 
 ### Post-condition
 
-Create Quote from data in Quotes Table
-Return that quote
+1. Create Quote from data in Quotes Table
+2. Return that quote
 
 ### Queries
 
