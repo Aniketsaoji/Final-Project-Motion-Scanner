@@ -52,7 +52,7 @@ User
 ### Pre-condition
 
 1. User is Authenticated
-2. User has motion detectors installed at property by Technicial
+2. User has motion detectors installed at property by Technical Support.
 
 ### Post-condition
 
