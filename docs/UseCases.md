@@ -48,6 +48,7 @@ insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) v
 ### Actor
 
 User
+***KBL - Use case indicated Admin is an actor too.  
 
 ### Pre-condition
 
@@ -57,6 +58,7 @@ User
 ### Post-condition
 
 Security Table is updated with property id and 
+*** KBL - And what?  this is incomplete
 
 ### Queries
 
@@ -159,6 +161,7 @@ Non-User
 ### Pre-condition
 
 User enters sqft of covered property
+*** KBL - probably should be number of sensors rather than square feet.
 
 ### Post-condition
 
