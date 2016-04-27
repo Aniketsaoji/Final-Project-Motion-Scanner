@@ -2,6 +2,7 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
+<<<<<<< Updated upstream
       <paths name="CSCILAB">
         <serverdata>
           <mappings>
@@ -9,6 +10,8 @@
           </mappings>
         </serverdata>
       </paths>
+=======
+>>>>>>> Stashed changes
       <paths name="IntelEdison">
         <serverdata>
           <mappings>

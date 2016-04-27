@@ -13,7 +13,7 @@ In late February a string of break-ins occurred in the Brighton off-campus area;
 
 ### Authors
 
-* Ryan Chan
+* Ryan Z. Chan
 * Nicholai Mitchko
 * Aniket Saoji
 

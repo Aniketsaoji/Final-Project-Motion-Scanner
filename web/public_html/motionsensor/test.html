@@ -1,12 +1,3 @@
-<!--
-
-@include '../../include/dbconn.php';
-
-$dbc = connect_to_db('mitchko');
-$var = perform_query_select($dbc, 'SELECT CONV(ORD(zones),10,2) AS Movement, motionTime AS `Time` FROM mitchko.motionHistory WHERE NOT (zones=b\'0000\') ORDER BY `motionTime` DESC;',array());
-print json_encode($var);
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,4 +39,4 @@ Commodo atomorum delicatissimi ad vis. Velit ubique graece in eam, alterum aliqu
 In vix numquam delectus, laudem deleniti qualisque no cum. Nullam latine sit in, ius pericula dignissim efficiendi ne, illum lorem interpretaris cum eu. At essent alterum bonorum vim. Nam audire impetus vituperata no, duo partem adversarium complectitur in. Dicit inermis id qui, at autem docendi voluptatum eos, ne vel vitae laoreet. Vidit iisque praesent sea no, pro at alii nemore feugiat. Deleniti appareat persequeris has ex.
 
 Eos at tota ancillae, at laudem nostrum est. Vix id mollis consectetuer. Liber errem graecis sea ad, in pro suas saperet. In nam movet necessitatibus, gubergren consetetur ea per. An mea illum tractatos.</p>
-</body>-->
+</body>
