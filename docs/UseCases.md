@@ -1,6 +1,6 @@
 # USE CASES
 
-## 1. Add New User
+## 1. Add User and Property
 
 ### Actor
 
@@ -17,10 +17,31 @@ User is added to ACCOUNTS table
 ### Queries
 
 ```SQL
-insert into ACCOUNTS (Email, LastName, FirstName, password, passwordSalt) values (?);
+insert into ACCOUNTS values (?);
+insert into Properties values(?);
 ```
 
-## 2. Add Property
+## 2. Add Sensor
+
+### Actor
+
+User
+
+### Pre-condition
+
+User is Authenticated
+
+### Post-condition
+
+Property Table is updated
+
+### Queries
+
+```SQL
+insert into Sensor values (?);
+```
+
+## 3. Remove Sensor
 
 ### Actor
 
@@ -29,21 +50,18 @@ User
 ### Pre-condition
 
 1. User is Authenticated
-2. User's has .json formatted 3d rendering of house / property
-3. User inputs conditions for Text alerts
 
 ### Post-condition
 
-1. Property Table is updated
-2. Property.json file is uploaded and named to ~propertyID~.json
+Property Table is updated
 
 ### Queries
 
 ```SQL
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values (?);
+delete * from Sensor where sensorId=?;
 ```
 
-## 3. Add Zones to Property
+## 4. Get Price Quote
 
 ### Actor
 
@@ -51,28 +69,7 @@ User
 
 ### Pre-condition
 
-1. User is Authenticated
-2. User has motion detectors installed at property by Technicial
-
-### Post-condition
-
-Security Table is updated with property id and 
-
-### Queries
-
-```SQL
-insert into Security (propertyID) values(?);
-```
-
-## 4. Change Rate For Security Price
-
-### Actor
-
-Administrator
-
-### Pre-condition
-
-Administrator is Authenticated
+User is Authenticated
 
 ### Post-condition
 
@@ -81,7 +78,7 @@ Quotes table is updated with new quote
 ### Queries
 
 ```SQL
-update Quotes set sqft_to_price_multiplier=?;
+select * from quotes;
 ```
 
 
@@ -128,7 +125,7 @@ User is Authenticated
 delete from Properties where propertyID=?
 ```
 
-## 7. Delete Account
+## 7. See Recent Crime Feed
 
 ### Actor
 
@@ -140,33 +137,42 @@ User is Authenticated
 
 ### Post-condition
 
-1. remove properties from Properties table
-2. remove user from ACCOUNTS table
+Display recent Crimes in Area
 
 ### Queries
 
-```SQL
-delete from Properties where AssociatedAccountID=?;
-delete from ACCOUNTS where email=?;
-```
 
-## 8. Get Price Quote
+## 8. NSA Finder
 
 ### Actor
 
-Non-User
+User
 
 ### Pre-condition
 
-User enters sqft of covered property
+User is Authenticated
 
 ### Post-condition
 
-1. Create Quote from data in Quotes Table
-2. Return that quote
+Display Results for user
 
-### Queries
+## 9. Report a Crime
+
+### Actor
+
+User
+
+### Pre-condition
+
+User is Authenticated
+User fills out form
+
+### Post-condition
+
+Form is submitted
+
+### Crime Database updated
 
 ```SQL
-select (sqft_to_price_multiplier) from Quotes limit 1;
+insert into crimes values(?);
 ```
