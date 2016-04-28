@@ -1,100 +1,100 @@
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('68 Continental Lane', 57271, false, 45);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('4 Menomonie Alley', 49473, true, 60);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('4902 Waxwing Plaza', 60207, true, 60);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('062 Sachs Way', 42494, true, 53);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('168 Kennedy Drive', 51475, false, 48);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('97391 Crownhardt Point', 86514, true, 29);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('891 Mockingbird Alley', 86454, false, 30);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('92 Spaight Road', 93238, false, 84);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('5071 Pine View Court', 16748, true, 7);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('6 Muir Trail', 49060, true, 97);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('876 Elmside Center', 72897, true, 77);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('1287 Dapin Lane', 20106, false, 21);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('3227 Susan Way', 14697, true, 78);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('81004 4th Center', 67143, true, 17);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('8 Macpherson Circle', 21457, true, 58);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('32 Gerald Street', 92858, false, 84);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('16 Maryland Drive', 59231, false, 32);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('5 Northwestern Avenue', 92872, true, 97);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('3881 Lighthouse Bay Park', 19836, false, 64);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('4564 Springs Point', 31423, false, 56);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('67 Towne Plaza', 47966, false, 53);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('85 Butternut Crossing', 78860, true, 28);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('47326 Oxford Lane', 56492, false, 33);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('5 Lindbergh Alley', 75249, false, 14);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('561 Vernon Avenue', 99677, true, 70);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('31 Knutson Street', 87156, false, 21);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('1 Macpherson Junction', 27688, true, 65);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('207 7th Plaza', 91390, true, 17);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('89314 Sundown Street', 40102, true, 2);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('6 Utah Court', 88005, true, 51);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('56905 Hintze Drive', 20807, true, 12);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('90 Karstens Street', 11311, true, 31);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('28 Sunbrook Junction', 58897, false, 80);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('7 Schmedeman Road', 60554, true, 17);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('1 Evergreen Parkway', 76674, true, 49);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('61163 Prentice Trail', 69415, true, 70);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('2 4th Lane', 28493, false, 7);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('0 Banding Avenue', 60899, false, 1);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('21 Elka Junction', 60539, true, 78);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('62 Northfield Street', 61320, true, 37);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('045 Dennis Trail', 14967, true, 32);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('6076 Monterey Parkway', 18091, true, 61);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('98382 Commercial Alley', 12150, true, 34);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('1 Porter Center', 53698, false, 94);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('4675 Brown Park', 68245, false, 82);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('79938 Sutherland Way', 86256, false, 45);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('83040 Katie Street', 52948, true, 29);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('3434 Spenser Point', 29534, true, 50);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('938 Sunbrook Court', 25270, false, 31);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('64305 Granby Drive', 66163, false, 39);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('40208 Badeau Park', 57659, true, 3);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('57252 Red Cloud Parkway', 12738, true, 65);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('037 Morrow Lane', 29642, false, 61);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('78429 Lighthouse Bay Circle', 30600, true, 50);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('7 Hintze Park', 65839, false, 87);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('477 Express Point', 24077, true, 68);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('2091 Parkside Trail', 60951, false, 43);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('066 Hoard Hill', 52408, true, 64);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('6 Sundown Parkway', 20577, false, 93);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('76 Myrtle Junction', 63936, true, 57);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('179 Boyd Hill', 72337, true, 52);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('19136 Maple Wood Hill', 96198, false, 43);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('264 Vahlen Way', 30281, true, 75);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('2873 Lunder Alley', 21052, true, 86);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('001 Warner Way', 20679, false, 50);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('637 Judy Junction', 15651, true, 97);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('11447 Weeping Birch Trail', 84047, false, 22);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('5258 Goodland Court', 66569, false, 92);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('87 Tennyson Trail', 23195, false, 3);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('2 Anhalt Trail', 76780, false, 95);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('1 Beilfuss Terrace', 27700, true, 28);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('613 Holy Cross Circle', 41793, false, 10);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('821 Grim Terrace', 51756, false, 75);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('4 Birchwood Point', 65142, false, 57);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('6 Jenifer Drive', 48661, false, 42);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('8243 Hintze Street', 96561, false, 8);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('46616 Oak Hill', 69317, false, 80);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('51 Truax Road', 13257, false, 37);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('4757 Green Ridge Center', 11612, false, 76);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('38767 Reindahl Trail', 81107, true, 85);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('7165 Village Street', 68035, false, 16);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('7 Walton Hill', 13507, false, 36);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('4 Riverside Circle', 29484, false, 90);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('674 Manley Lane', 28679, false, 67);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('33 Blaine Point', 81029, true, 61);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('2 Valley Edge Point', 74109, true, 7);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('08586 Glendale Plaza', 19143, false, 28);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('297 Sauthoff Alley', 39309, false, 94);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('87 4th Terrace', 55405, true, 18);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('4 Holmberg Street', 40253, false, 45);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('33 American Ash Center', 38629, false, 29);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('7 Pankratz Center', 85223, false, 89);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('89658 Thierer Point', 45857, false, 74);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('226 Kedzie Lane', 26651, true, 7);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('177 Mifflin Pass', 95339, false, 31);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('64 Graceland Junction', 33529, false, 41);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('176 Golden Leaf Junction', 58381, false, 34);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('96 Bunker Hill Alley', 34243, true, 76);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('77 Hansons Crossing', 29614, true, 12);
-insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccount) values ('8661 Manufacturers Trail', 39485, false, 42);
+insert into Properties (StreetAddress, ZipCode, TextAlerts, AssociatedAccountID) values ('68 Continental Lane', 57271, false, 45),
+('4 Menomonie Alley', 49473, true, 60),
+('4902 Waxwing Plaza', 60207, true, 60),
+('062 Sachs Way', 42494, true, 53),
+('168 Kennedy Drive', 51475, false, 48),
+('97391 Crownhardt Point', 86514, true, 29),
+('891 Mockingbird Alley', 86454, false, 30),
+('92 Spaight Road', 93238, false, 84),
+('5071 Pine View Court', 16748, true, 7),
+('6 Muir Trail', 49060, true, 97),
+('876 Elmside Center', 72897, true, 77),
+('1287 Dapin Lane', 20106, false, 21),
+('3227 Susan Way', 14697, true, 78),
+('81004 4th Center', 67143, true, 17),
+('8 Macpherson Circle', 21457, true, 58),
+('32 Gerald Street', 92858, false, 84),
+('16 Maryland Drive', 59231, false, 32),
+('5 Northwestern Avenue', 92872, true, 97),
+('3881 Lighthouse Bay Park', 19836, false, 64),
+('4564 Springs Point', 31423, false, 56),
+('67 Towne Plaza', 47966, false, 53),
+('85 Butternut Crossing', 78860, true, 28),
+('47326 Oxford Lane', 56492, false, 33),
+('5 Lindbergh Alley', 75249, false, 14),
+('561 Vernon Avenue', 99677, true, 70),
+('31 Knutson Street', 87156, false, 21),
+('1 Macpherson Junction', 27688, true, 65),
+('207 7th Plaza', 91390, true, 17),
+('89314 Sundown Street', 40102, true, 2),
+('6 Utah Court', 88005, true, 51),
+('56905 Hintze Drive', 20807, true, 12),
+('90 Karstens Street', 11311, true, 31),
+('28 Sunbrook Junction', 58897, false, 80),
+('7 Schmedeman Road', 60554, true, 17),
+('1 Evergreen Parkway', 76674, true, 49),
+('61163 Prentice Trail', 69415, true, 70),
+('2 4th Lane', 28493, false, 7),
+('0 Banding Avenue', 60899, false, 1),
+('21 Elka Junction', 60539, true, 78),
+('62 Northfield Street', 61320, true, 37),
+('045 Dennis Trail', 14967, true, 32),
+('6076 Monterey Parkway', 18091, true, 61),
+('98382 Commercial Alley', 12150, true, 34),
+('1 Porter Center', 53698, false, 94),
+('4675 Brown Park', 68245, false, 82),
+('79938 Sutherland Way', 86256, false, 45),
+('83040 Katie Street', 52948, true, 29),
+('3434 Spenser Point', 29534, true, 50),
+('938 Sunbrook Court', 25270, false, 31),
+('64305 Granby Drive', 66163, false, 39),
+('40208 Badeau Park', 57659, true, 3),
+('57252 Red Cloud Parkway', 12738, true, 65),
+('037 Morrow Lane', 29642, false, 61),
+('78429 Lighthouse Bay Circle', 30600, true, 50),
+('7 Hintze Park', 65839, false, 87),
+('477 Express Point', 24077, true, 68),
+('2091 Parkside Trail', 60951, false, 43),
+('066 Hoard Hill', 52408, true, 64),
+('6 Sundown Parkway', 20577, false, 93),
+('76 Myrtle Junction', 63936, true, 57),
+('179 Boyd Hill', 72337, true, 52),
+('19136 Maple Wood Hill', 96198, false, 43),
+('264 Vahlen Way', 30281, true, 75),
+('2873 Lunder Alley', 21052, true, 86),
+('001 Warner Way', 20679, false, 50),
+('637 Judy Junction', 15651, true, 97),
+('11447 Weeping Birch Trail', 84047, false, 22),
+('5258 Goodland Court', 66569, false, 92),
+('87 Tennyson Trail', 23195, false, 3),
+('2 Anhalt Trail', 76780, false, 95),
+('1 Beilfuss Terrace', 27700, true, 28),
+('613 Holy Cross Circle', 41793, false, 10),
+('821 Grim Terrace', 51756, false, 75),
+('4 Birchwood Point', 65142, false, 57),
+('6 Jenifer Drive', 48661, false, 42),
+('8243 Hintze Street', 96561, false, 8),
+('46616 Oak Hill', 69317, false, 80),
+('51 Truax Road', 13257, false, 37),
+('4757 Green Ridge Center', 11612, false, 76),
+('38767 Reindahl Trail', 81107, true, 85),
+('7165 Village Street', 68035, false, 16),
+('7 Walton Hill', 13507, false, 36),
+('4 Riverside Circle', 29484, false, 90),
+('674 Manley Lane', 28679, false, 67),
+('33 Blaine Point', 81029, true, 61),
+('2 Valley Edge Point', 74109, true, 7),
+('08586 Glendale Plaza', 19143, false, 28),
+('297 Sauthoff Alley', 39309, false, 94),
+('87 4th Terrace', 55405, true, 18),
+('4 Holmberg Street', 40253, false, 45),
+('33 American Ash Center', 38629, false, 29),
+('7 Pankratz Center', 85223, false, 89),
+('89658 Thierer Point', 45857, false, 74),
+('226 Kedzie Lane', 26651, true, 7),
+('177 Mifflin Pass', 95339, false, 31),
+('64 Graceland Junction', 33529, false, 41),
+('176 Golden Leaf Junction', 58381, false, 34),
+('96 Bunker Hill Alley', 34243, true, 76),
+('77 Hansons Crossing', 29614, true, 12),
+('8661 Manufacturers Trail', 39485, false, 42);

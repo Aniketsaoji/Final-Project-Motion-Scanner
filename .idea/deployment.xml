@@ -2,20 +2,24 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-<<<<<<< Updated upstream
-      <paths name="CSCILAB">
+      <paths name="Artisan Serve">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$/web" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-=======
->>>>>>> Stashed changes
+      <paths name="CSCILAB">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$/web/" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="IntelEdison">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$/edison/EdisonProject" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

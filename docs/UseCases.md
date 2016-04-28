@@ -1,10 +1,10 @@
 # USE CASES
 
-## 1. Add User and Property
+## 1. Add Property
 
 ### Actor
 
-Registrar
+User
 
 ### Pre-condition
 
@@ -12,12 +12,11 @@ None
 
 ### Post-condition
 
-User is added to ACCOUNTS table
+Property is added to account
 
 ### Queries
 
 ```SQL
-insert into ACCOUNTS values (?);
 insert into Properties values(?);
 ```
 
@@ -58,7 +57,7 @@ Property Table is updated
 ### Queries
 
 ```SQL
-delete * from Sensor where sensorId=?;
+delete * from Sensor where sensorid=?;
 ```
 
 ## 4. Get Price Quote
@@ -69,11 +68,11 @@ User
 
 ### Pre-condition
 
-User is Authenticated
+Nonr
 
 ### Post-condition
 
-Quotes table is updated with new quote
+price per sensor is quoted
 
 ### Queries
 
@@ -95,13 +94,13 @@ User / Administrator
 
 ### Post-condition
 
-return 3d rendering of property with live heat map of movement
+return admin page of sensor data
 
 ### Queries
 
 ```SQL
-i.  select (propertyID, StreetAddress, ZipCode, TextAlerts) from Properties where `AssociatedAccountID`=?;
-ii. select (motionZones) from Security where propertyID=?; // ID from query i
+select (propertyID, StreetAddress, ZipCode, TextAlerts) from Properties where `AssociatedAccountID`=?;
+select (motionZones) from Security where propertyID=?; // ID from query i
 ```
 
 ## 6. Delete Property
