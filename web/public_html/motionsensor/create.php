@@ -5,9 +5,7 @@ if(isloggedin()){
     header("Location: index.php");
 }
 
-if(isset($_POST['create'])){
-	
-}
+/*Do Adding to Accounts here*/
 
 ?>
 
@@ -68,7 +66,7 @@ if(isset($_POST['create'])){
     </div>
 </nav>
 	<h1>Suh dude! You tryna make an account?</h1>
-	<form action = "dbadd.php" class = "form" role = "form" method = "post" onsubmit = "return validate()">
+	<form action ="" class = "form" role = "form" method = "post" onsubmit = "return validate()">
 		<div class = "form-group">
 		<fieldset class="form-group">
 			<legend>Create Account</legend>
