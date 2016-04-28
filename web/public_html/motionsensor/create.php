@@ -5,9 +5,8 @@ if(isLoggedIn_Cookie()){
    header("Location : http://cscilab.bc.edu/~mitchko/motionsensor/dashboard.php");
 }
 
-if(isset($_POST['signin'])){
-//	echo "hi";
-//	echo $_POST['InputEmail'];
+if(isset($_POST['create'])){
+	
 }
 
 ?>
@@ -68,4 +67,19 @@ if(isset($_POST['signin'])){
         </div>
     </div>
 </nav>
+	<h1>Suh dude! You tryna make an account?</h1>
+	<form class = "form" role = "form" method = "post" onsubmit = "return validate()">
+		<div class = "form-group">
+		<fieldset class="form-group">
+			<legend>Create Account</legend>
+			<label>What's your email address?</label>
+			<input type="email" id="exampleInputEmail1" placeholder="Enter email"><br>
+			<label>Enter the password you want</label>
+			<input type=password name="password" id = "password" placeholder="Enter password"><span id = "afterPass"></span><br>
+			<label>Retype your password</label>
+			<input type=password name="password2" id = "password2" placeholder="Retype password"><br>
+			<button type="submit" name = "create" class="btn btn-primary">Create Account</button>
+		</fieldset>
+		</div>
+	</form>
 </body>
