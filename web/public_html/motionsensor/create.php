@@ -68,12 +68,12 @@ if(isset($_POST['create'])){
     </div>
 </nav>
 	<h1>Suh dude! You tryna make an account?</h1>
-	<form class = "form" role = "form" method = "post" onsubmit = "return validate()">
+	<form action = "dbadd.php" class = "form" role = "form" method = "post" onsubmit = "return validate()">
 		<div class = "form-group">
 		<fieldset class="form-group">
 			<legend>Create Account</legend>
 			<label>What's your email address?</label>
-			<input type="email" id="exampleInputEmail1" placeholder="Enter email"><br>
+			<input type="email" id="exampleInputEmail1" name = "email" placeholder="Enter email"><br>
 			<label>Enter the password you want</label>
 			<input type=password name="password" id = "password" placeholder="Enter password"><span id = "afterPass"></span><br>
 			<label>Retype your password</label>
