@@ -1,3 +1,9 @@
+<?php
+@include '../../include/user.php';
+
+doLogin();
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">

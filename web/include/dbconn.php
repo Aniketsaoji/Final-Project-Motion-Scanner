@@ -67,5 +67,14 @@ function perform_query_insert_noparam(PDO $dbc, $qry, array $parameters){
         $i++;
     }
     $statement->execute();
-    
+}
+
+function perform_query_update(PDO $dbc, $qry, array $parameters){
+    $statement = $dbc->prepare($qry);
+    $i = 1;
+    foreach($parameters as $value){
+        $statement->bindValue($i, $value);
+        $i++;
+    }
+    $statement->execute();
 }

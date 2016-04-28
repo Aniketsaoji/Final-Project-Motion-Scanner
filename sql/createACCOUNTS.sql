@@ -7,6 +7,8 @@ create table ACCOUNTS(
     FirstName varchar(255),
     password varchar(32) NOT NULL,
     passwordSalt BIT(16) NOT NULL,
+    currentCookie varchar(32) default 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+    currentCookieTimestamp timestamp,
     isAdmin bool not null default 0,
     PRIMARY KEY (ID)
 );
