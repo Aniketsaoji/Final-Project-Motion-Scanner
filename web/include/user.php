@@ -23,7 +23,7 @@ function isloggedin(){
     $browserCookie = $_COOKIE['session'];
     $rows = perform_query_select($dbc, "select * from mitchko.ACCOUNTS where `currentCookie`=? AND (`currentCookieTimestamp` > DATE_SUB(now(), INTERVAL 30 MINUTE))", array($browserCookie => PDO::PARAM_STR));
     if(sizeof($rows > 0)){
-        
+        return true;
     } else {
         return false;
     }
