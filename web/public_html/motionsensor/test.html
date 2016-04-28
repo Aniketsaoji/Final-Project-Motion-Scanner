@@ -19,7 +19,7 @@
     </a>
     	<ul class="dropdown-menu">
 			<li><a href = "test.html">Home</a></li>
-			<li><a href ="login.html">Login</a></li>
+			<li><a href ="login.php">Login</a></li>
 			<li><a href ="quote.html">Get a Quote</a></li>
 			<li><a href ="help.html">Get Help</a></li>
     	</ul>

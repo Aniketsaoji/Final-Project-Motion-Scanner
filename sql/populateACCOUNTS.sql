@@ -98,3 +98,4 @@ insert into ACCOUNTS (Email, LastName, FirstName, password, passwordSalt) values
 insert into ACCOUNTS (Email, LastName, FirstName, password, passwordSalt) values ('pwoods2p@cdbaby.com', 'Woods', 'Paul', 52765, 57649);
 insert into ACCOUNTS (Email, LastName, FirstName, password, passwordSalt) values ('mjacobs2q@businessweek.com', 'Jacobs', 'Michelle', 68936, 37674);
 insert into ACCOUNTS (Email, LastName, FirstName, password, passwordSalt) values ('ewillis2r@independent.co.uk', 'Willis', 'Elizabeth', 65372, 18423);
+insert into ACCOUNTS (Email, LastName, FirstName, password, passwordSalt) values ('nickmitchko@gmail.com', 'Willis', 'Elizabeth', 65372, 18423);

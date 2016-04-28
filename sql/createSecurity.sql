@@ -2,6 +2,8 @@ drop table Security;
 
 create table Security(
     propertyID int not null,
-    motionZones BIT(500) not null DEFAULT 0,
-    PRIMARY KEY (propertyID)
+    sensorId int not null,
+    `value` BOOL not null default false,
+    `motiontime` datetime not null,
+    PRIMARY KEY (sensorId)
 );
