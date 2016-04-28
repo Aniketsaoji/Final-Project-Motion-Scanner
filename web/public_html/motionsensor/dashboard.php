@@ -1,9 +1,10 @@
 <?php
-@include '../../include/user.php';
-
-if(isLoggedIn_Cookie()){
-   header("Location : http://cscilab.bc.edu/~mitchko/motionsensor/dashboard.php");
-}
+/**
+ * Created by PhpStorm.
+ * User: Nicholai
+ * Date: 4/27/2016
+ * Time: 8:43 PM
+ */
 
 ?>
 
@@ -51,4 +52,42 @@ if(isLoggedIn_Cookie()){
         </div>
     </div>
 </nav>
+<div class="container">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <h1>Login</h1>
+            </div>
+        </div>
+    </div>
+    <div class="bs-docs-section">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <form class="form-horizontal col-lg-6" action="" method="post" >
+                <fieldset>
+                    <div class="form-group">
+                        <label for="email" class="col-lg-2 control-label"></label>
+                        <div class="col-lg-10">
+                            <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-lg-2 control-label"></label>
+                        <div class="col-lg-10">
+                            <input type="password" class="form-control" id="password" name="password"
+                                   placeholder="Password" required
+                            >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
+</div>
 </body>
