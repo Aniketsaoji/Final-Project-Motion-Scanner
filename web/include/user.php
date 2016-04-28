@@ -29,6 +29,17 @@ function isloggedin(){
     }
 }
 
+function getLoginCredentials(){
+    $dbc = connect_to_db("mitchko");
+    $browserCookie = $_COOKIE['session'];
+    $rows = perform_query_select($dbc, "select (`ID`, Email, LastName, FirstName, isAdmin) from mitchko.ACCOUNTS where `currentCookie`=? AND (`currentCookieTimestamp` > DATE_SUB(now(), INTERVAL 30 MINUTE))", array($browserCookie => PDO::PARAM_STR));
+    if(sizeof($rows > 0)){
+        return $rows[0];
+    } else {
+        return false;
+    }
+}
+
 function checkLogin(PDO $dbc){
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $rows = perform_query_select($dbc, "select * from mitchko.ACCOUNTS where `Email`=?", array($email => PDO::PARAM_STR));

@@ -1,8 +1,8 @@
 <?php
 @include '../../include/user.php';
 
-if(isLoggedIn_Cookie()){
-   header("Location : http://cscilab.bc.edu/~mitchko/motionsensor/dashboard.php");
+if(isloggedin()){
+    header("Location: index.php");
 }
 
 if(isset($_POST['create'])){
