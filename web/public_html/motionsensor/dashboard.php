@@ -9,9 +9,9 @@
 
 $loggedIn = false;
 
-if(!isloggedin()){
+if (!isloggedin()) {
     header("Location: login.php");
-} else{
+} else {
     $loggedIn = true;
 }
 ?>
@@ -58,13 +58,18 @@ if(!isloggedin()){
             </ul>
             <?php
             // Added so that the login button doesn't show up
-            if(!$loggedIn){
+            if (!$loggedIn) {
                 ?>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.php">Login</a></li>
-            </ul>
-            <?php
-            } else {}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="login.php">Login</a></li>
+                </ul>
+                <?php
+            } else { ?>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="logout.php">Logout</a></li>
+                </ul>
+                <?php
+            }
             ?>
         </div>
     </div>

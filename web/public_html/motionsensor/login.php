@@ -2,6 +2,7 @@
 @include '../../include/user.php';
 
 doLogin();
+// TODO: Add logout message when $_GET['logout'] is set
 ?>
 
 <html lang="en">
@@ -43,7 +44,7 @@ doLogin();
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.php">Login</a></li>
+                <li><a href="login.php">Create Account</a></li>
             </ul>
         </div>
     </div>
@@ -77,6 +78,7 @@ doLogin();
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
+                            <button type="button" class="btn btn-danger">Register</button>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>

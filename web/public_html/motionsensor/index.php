@@ -6,4 +6,3 @@ if(!isloggedin()){
 } else {
     header("Location: dashboard.php");
 }
-?>

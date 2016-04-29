@@ -16,9 +16,6 @@ canvas {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-}
-
-.row{
     background: rgba(255,255,255,0.75);
     border-bottom: 1px solid #ccc;
 }
