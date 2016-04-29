@@ -62,22 +62,21 @@ doLogin();
             <div class="col-xs-6 col-md-4"></div>
             <form class="form-horizontal col-xs-6 col-md-4" action="" method="post" >
                 <fieldset>
+                    <br>
                     <div class="form-group">
-                        <label for="email" class="col-lg-2 control-label"></label>
-                        <div class="col-lg-10">
+                        <div class="col-lg-12">
                             <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="password" class="col-lg-2 control-label"></label>
-                        <div class="col-lg-10">
+                        <div class="col-lg-12">
                             <input type="password" class="form-control" id="password" name="password"
                                    placeholder="Password" required
                             >
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-lg-10 col-lg-offset-2">
+                        <div class="col-lg-12">
                             <button type="submit" class="btn btn-primary col-lg-12">Submit</button>
                         </div>
                     </div>

@@ -1,14 +1,17 @@
 window.onload = function() {
     var ctx = document.getElementById("canvas").getContext("2d");
     var chartData;
-    $.post("../data/getSensorData.php",
+    $.post("data/getSensorData.php",
         {
             sid: 1,
             minutes: 30
         },
         function (data, status) {
-            chartData = JSON.parse(data);
+            makeChart(JSON.parse(data));
     });
+};
+
+function makeChart(chartData, ctx){
     var myLineChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -46,4 +49,4 @@ window.onload = function() {
             }
         }
     });
-};
+}
