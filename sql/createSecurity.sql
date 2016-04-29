@@ -1,9 +1,9 @@
 drop table Security;
 
 create table Security(
+    entry int not null AUTO_INCREMENT,
     propertyID int not null,
     sensorId int not null,
-    `value` BOOL not null default false,
-    `motiontime` datetime not null,
-    PRIMARY KEY (sensorId)
+    `motiontime` timestamp not null,
+    Primary Key (`entry`)
 );

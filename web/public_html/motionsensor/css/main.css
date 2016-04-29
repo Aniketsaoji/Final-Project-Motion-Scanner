@@ -1,16 +1,24 @@
-html
-{
+html {
     width: 100%;
     height: 100%;
 }
 
 body {
-/*    background-image: url("../img/bc.jpg");*/
-	background: url('../img/boscol.jpg');
+    /*    background-image: url("../img/bc.jpg");*/
+    background: url('../img/boscol.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-*/
-	
+}
+
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.row{
+    background: rgba(255,255,255,0.75);
+    border-bottom: 1px solid #ccc;
 }

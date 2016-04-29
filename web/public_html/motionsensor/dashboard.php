@@ -5,7 +5,15 @@
  * Date: 4/27/2016
  * Time: 8:43 PM
  */
+@include '../../include/user.php';
 
+$loggedIn = false;
+
+if(!isloggedin()){
+    header("Location: login.php");
+} else{
+    $loggedIn = true;
+}
 ?>
 
 <html lang="en">
@@ -17,6 +25,8 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.dynatable.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script src="js/dashboard.js"></script>
     <link href="css/main.css" rel="stylesheet">
     <link href="css/jquery.dynatable.css" rel="stylesheet">
 </head>
@@ -46,48 +56,33 @@
                     </ul>
                 </li>
             </ul>
+            <?php
+            // Added so that the login button doesn't show up
+            if(!$loggedIn){
+                ?>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="login.php">Login</a></li>
             </ul>
+            <?php
+            } else {}
+            ?>
         </div>
     </div>
 </nav>
-<div class="container">
-    <div class="page-header">
-        <div class="row">
-            <div class="col-lg-8 col-md-7 col-sm-6">
-                <h1>Login</h1>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-xs-6 col-md-4">
+        <canvas id="canvas">
+        </canvas>
     </div>
-    <div class="bs-docs-section">
-        <div class="row">
-            <div class="col-lg-3"></div>
-            <form class="form-horizontal col-lg-6" action="" method="post" >
-                <fieldset>
-                    <div class="form-group">
-                        <label for="email" class="col-lg-2 control-label"></label>
-                        <div class="col-lg-10">
-                            <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="col-lg-2 control-label"></label>
-                        <div class="col-lg-10">
-                            <input type="password" class="form-control" id="password" name="password"
-                                   placeholder="Password" required
-                            >
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-lg-10 col-lg-offset-2">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
-            <div class="col-lg-3"></div>
-        </div>
+    <div class="col-xs-6 col-lg-4">
+    </div>
+    <div class="col-xs-6 col-lg-4">
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-lg-4">
+        <canvas id="chart2">
+        </canvas>
     </div>
 </div>
 </body>

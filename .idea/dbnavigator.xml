@@ -23,21 +23,23 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5">
-        <schema name="mitchko" object-types="column, constraint, function, index, procedure, table, dataset trigger, view" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5">
-      <console name="CSCILAB" type="STANDARD"><![CDATA[ALTER TABLE mitchko.ACCOUNTS ADD currentCookie varchar(32) default 'aaaaaaaaaaaaaaaaaaaaaaaa' after passwordSalt,
-  ADD currentCookieTimestamp timestamp after currentCookie;]]></console>
+      <console name="CSCILAB" type="STANDARD"><![CDATA[ALTER TABLE mitchko.Properties ADD ZipCode varchar(5) NOT NULL;
+
+DROP TABLE mitchko.Security;
+
+insert into mitchko.`Security` (motiontime, `propertyID`, `sensorId`) values (NOW(), 1, 3);]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-list connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" dataset="mitchko.motion" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" dataset="mitchko.Sensor" active-filter-id="EMPTY_FILTER" />
     <filter-list connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" dataset="mitchko.boringclub" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" dataset="mitchko.Properties" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" dataset="mitchko.Security" active-filter-id="EMPTY_FILTER" />
     <filter-list connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" dataset="mitchko.ACCOUNTS" active-filter-id="EMPTY_FILTER" />
     <filter-list connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" dataset="mitchko.motionHistory" active-filter-id="bd0457ee-1fb8-43d3-837e-3aa620954013">
       <filter id="bd0457ee-1fb8-43d3-837e-3aa620954013" name="Filter" temporary="false" custom-name="false" type="custom">
@@ -49,13 +51,27 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/sql/createQuotes.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="mitchko" />
-    <mapping file-url="file://$PROJECT_DIR$/sql/createACCOUNTS.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="mitchko" />
-    <mapping file-url="file://$PROJECT_DIR$/sql/populateACCOUNTS.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="MITCHKO" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/createSecurity.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="MITCHKO" />
     <mapping file-url="file://$PROJECT_DIR$/sql/populateProperties.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="mitchko" />
     <mapping file-url="file://$PROJECT_DIR$/sql/createSensor.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="MITCHKO" />
     <mapping file-url="file://$PROJECT_DIR$/sql/createProperties.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="mitchko" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/createACCOUNTS.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="mitchko" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/populateProperties.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="mitchko" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/createSensor.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="MITCHKO" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/createQuotes.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="mitchko" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/populateProperties.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="mitchko" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/createQuotes.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="mitchko" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/createQuotes.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="mitchko" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/populateACCOUNTS.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="MITCHKO" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/createProperties.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="mitchko" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/populateACCOUNTS.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="MITCHKO" />
     <mapping file-url="file://$PROJECT_DIR$/sql/createSecurity.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="MITCHKO" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/populateACCOUNTS.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="MITCHKO" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/createProperties.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="mitchko" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/createSecurity.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="MITCHKO" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/createACCOUNTS.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="MITCHKO" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/createACCOUNTS.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="MITCHKO" />
+    <mapping file-url="file://$PROJECT_DIR$/sql/createSensor.sql" connection-id="e9fe07a3-55fb-4533-a77b-3f8deb1507c5" current-schema="MITCHKO" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />

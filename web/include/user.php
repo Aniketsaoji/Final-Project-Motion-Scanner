@@ -20,13 +20,14 @@ function generateRandomString($length = 10) {
 
 function isloggedin(){
     $dbc = connect_to_db("mitchko");
-    $browserCookie = $_COOKIE['session'];
-    $rows = perform_query_select($dbc, "select * from mitchko.ACCOUNTS where `currentCookie`=? AND (`currentCookieTimestamp` > DATE_SUB(now(), INTERVAL 30 MINUTE))", array($browserCookie => PDO::PARAM_STR));
-    if(sizeof($rows > 0)){
-        return true;
-    } else {
-        return false;
+    if(isset($_COOKIE['session'])){
+        $browserCookie = $_COOKIE['session'];
+        $rows = perform_query_select($dbc, "select * from mitchko.ACCOUNTS where `currentCookieTimestamp` >= DATE_SUB(NOW(), INTERVAL 30 MINUTE ) AND `currentCookie`=?", array($browserCookie => PDO::PARAM_STR));
+        if(count($rows)>0){
+            return strcmp($browserCookie, $rows[0]['currentCookie']) == 0;
+        }
     }
+    return false;
 }
 
 function getLoginCredentials(){

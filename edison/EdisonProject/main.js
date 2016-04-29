@@ -18,7 +18,7 @@ motionInput2.dir(mraa.DIR_IN);
 motionInput3.dir(mraa.DIR_IN);
 motionInput4.dir(mraa.DIR_IN);
 motionInput5.dir(mraa.DIR_IN);
-
+/*
 // Tunnel to CSCILAB so we can connect to the database
 var tunnel = require('tunnel-ssh');
 
@@ -49,38 +49,27 @@ var connection = mysql.createConnection({
     user: credentials.databaseCredentials[0],
     password: credentials.databaseCredentials[1],
     database: credentials.databaseCredentials[0]
-});
+});*/
 
 // Connect to the DB
-connection.connect();
-console.log("Connected to database");
+/*connection.connect();*/
+/*console.log("Connected to database");*/
 
+var exec = require('child_process').exec;
 // Variable to hold movement values
 var zones = new Array(false, false, false, false, false);
 
 // Function to insert the values to a database
 function updateDatabase() {
-    connection.query('UPDATE mitchko.motion SET zone1=' + (zones[0] ? 'TRUE' : 'FALSE') +
-        ' zone2=' + (zones[1] ? 'TRUE' : 'FALSE') +
-        ' zone3=' + (zones[2] ? 'TRUE' : 'FALSE') +
-        ' zone4='+(zones[3] ? 'TRUE': 'FALSE') +
-        ' zone5='+(zones[4] ? 'TRUE': 'FALSE') +
-        ' where id=1', function (err, rows, fields) {
-        console.log("Updated Database");
-    });
-    insertIntoHistory();
-    resetZones();
-}
-
-// Adds to the motion History
-function insertIntoHistory(){
-    var id = "";
-    connection.query('SELECT id from mitchko.motionHistory order by motionTime asc limit 1', function(err, rows, fields){
-        id = rows[0]['id'];
-        connection.query('update mitchko.motionHistory SET zones=b\'' + (zones[0] ? '1':'0')+ (zones[1] ? '1':'0')+ (zones[2] ? '1':'0')+ (zones[3] ? '1':'0') + '\', motionTime=now() where id='+id,
-            function (err, rows, fields){
+    for(var i = 0; i < 5; i++){
+        if(zones[i]){
+            var url = 'http://cscilab.bc.edu/~mitchko/motionsensor/update.php?sid=' + (i + 1);
+            exec('wget ' + url, function(error, stdout, stderr){
+                console.log("Updated, " + i);
             });
-    });
+        }
+    }
+    resetZones();
 }
 
 // Reset Movement Data, called in zones
