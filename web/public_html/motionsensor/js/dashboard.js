@@ -1,3 +1,5 @@
+var dta;
+
 window.onload = function() {
     var ctx = document.getElementById("canvas").getContext("2d");
     var chartData;
@@ -12,6 +14,7 @@ window.onload = function() {
 };
 
 function makeChart(chartData, ctx){
+    dta = chartData;
     var myLineChart = new Chart(ctx, {
         type: 'line',
         data: {
