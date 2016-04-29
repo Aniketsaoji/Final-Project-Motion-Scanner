@@ -75,3 +75,12 @@ function doLogin($redirect='dashboard.php'){
         }
     }
 }
+
+function doLogout($redirect='login.php'){
+    setcookie('session', '000000000000000000000000000000000000000000000000');
+    header("Location: " . $redirect);
+}
+
+function redirect($location){
+    header("Location: " . $location);
+}

@@ -20,6 +20,10 @@ canvas {
     border-bottom: 1px solid #ccc;
 }
 
-input{
+input {
     text-align: center;
+}
+
+form {
+    background: rgba(255,255,255,0.5);
 }
