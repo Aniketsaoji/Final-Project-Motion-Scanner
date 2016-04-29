@@ -10,14 +10,14 @@ var mraa = require('mraa');                                 // Setup Code to Inc
 var motionInput1 = new mraa.Gpio(13);                       // Pin: 13 Get the MotionSensor input on certain physical pins
 var motionInput2 = new mraa.Gpio(7);                        // Pin: 7
 var motionInput3 = new mraa.Gpio(8);                        // Pin: 8
-var motionInput4 = new mraa.Gpio(9);                        // Pin: 9
-var motionInput5 = new mraa.Gpio(10);                       // Pin: 10
+//var motionInput4 = new mraa.Gpio(9);                        // Pin: 9
+//var motionInput5 = new mraa.Gpio(10);                       // Pin: 10
 
 motionInput1.dir(mraa.DIR_IN);                              // Make Sure the GPIO Pins in set on input mode
 motionInput2.dir(mraa.DIR_IN);
 motionInput3.dir(mraa.DIR_IN);
-motionInput4.dir(mraa.DIR_IN);
-motionInput5.dir(mraa.DIR_IN);
+/*motionInput4.dir(mraa.DIR_IN);
+motionInput5.dir(mraa.DIR_IN);*/
 /*
 // Tunnel to CSCILAB so we can connect to the database
 var tunnel = require('tunnel-ssh');
@@ -64,7 +64,7 @@ function updateDatabase() {
     for(var i = 0; i < 5; i++){
         if(zones[i]){
             var url = 'http://cscilab.bc.edu/~mitchko/motionsensor/update.php?sid=' + (i + 1);
-            exec('wget ' + url, function(error, stdout, stderr){
+            exec('wget -qO- ' + url + " &> /dev/null", function(error, stdout, stderr){
                 console.log("Updated, " + i);
             });
         }
@@ -85,8 +85,8 @@ function checkForMotion() {
     zones[0] = zones[0]  || motionInput1.read() == 1 ;
     zones[1] = zones[1]  || motionInput2.read() == 1 ;
     zones[2] = zones[2]  || motionInput3.read() == 1 ;
-    zones[3] = zones[3]  || motionInput4.read() == 1 ;
-    zones[4] = zones[4]  || motionInput5.read() == 1 ;
+    //zones[3] = zones[3]  || motionInput4.read() == 1 ;
+    //zones[4] = zones[4]  || motionInput5.read() == 1 ;
 }
 // Give the Sensors 15 seconds to warm up :)
 setTimeout(function () {

@@ -27,11 +27,11 @@ if (!isloggedin()) {
     <script src="js/main.js"></script>
     <script src="js/Chart.min.js"></script>
     <script src="js/dashboard.js"></script>
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
     <link href="css/jquery.dynatable.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -45,17 +45,6 @@ if (!isloggedin()) {
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Services<span
-                            class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="test.html">Home</a></li>
-                        <li><a href="quote.html">Get a Quote</a></li>
-                        <li><a href="help.html">Get Help</a></li>
-                    </ul>
-                </li>
-            </ul>
             <?php
             // Added so that the login button doesn't show up
             if (!$loggedIn) {
@@ -74,20 +63,52 @@ if (!isloggedin()) {
         </div>
     </div>
 </nav>
-<div class="row">
-    <div class="col-xs-6 col-md-4">
-        <canvas id="canvas">
-        </canvas>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Dashboard</h1>
+        </div>
     </div>
-    <div class="col-xs-6 col-lg-4">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    Properties
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                Properties
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li><a href="#">Action</a>
+                                </li>
+                                <li><a href="#">Another action</a>
+                                </li>
+                                <li><a href="#">Something else here</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <canvas id="canvas">
+                    </canvas>
+                </div>
+                <div class="panel-footer">
+                    Change Property
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4">
+
+        </div>
     </div>
-    <div class="col-xs-6 col-lg-4">
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-6 col-lg-4">
-        <canvas id="chart2">
-        </canvas>
+    <div>
     </div>
 </div>
 </body>

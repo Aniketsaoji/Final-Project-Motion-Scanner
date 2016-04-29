@@ -47,20 +47,13 @@ function creationVariablesSet()
     return false;
 }
 
-function createUser(PDO $dbc, array $postVars){
-    perform_query_insert();
-}
-
-function createProperty(PDO $dbc, array $postVars, $id){
-
-}
-
 $POST_vars = creationVariablesSet();
 
 if(is_array($POST_vars)){
     $dbc = connect_to_db("mitchko");
     $id = createUser($dbc, $POST_vars);
     createProperty($dbc, $POST_vars, $id);
+    redirect('dashboard.php');
 } else if($POST_vars == false){
 }
 
