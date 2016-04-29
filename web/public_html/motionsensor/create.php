@@ -1,8 +1,5 @@
 <?php
 @include '../../include/user.php';
-
-/*Do Adding to Accounts here*/
-
 ?>
 
 <html lang="en">
@@ -38,42 +35,53 @@
                             class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="test.html">Home</a></li>
-                        <li><a href="create.php">Create Account</a></li>
                         <li><a href="quote.html">Get a Quote</a></li>
                         <li><a href="help.html">Get Help</a></li>
                     </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <div>
-                    <form method="POST" class="form-inline">
-                        <div class="form-group">
-                            <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                            <input type="email" class="form-control" name="InputEmail" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="exampleInputPassword3">Password</label>
-                            <input type="password" class="form-control" id="InputPassword" placeholder="Password"></div>
-                        <button type="submit" name="signin" class="btn btn-primary">Sign in</button>
-                    </form>
-                </div>
+                <li><a href="login.php">Login</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<h1>Suh dude! You tryna make an account?</h1>
-<form action="" class="form" role="form" method="post" onsubmit="return validate()">
-    <div class="form-group">
-        <fieldset class="form-group">
-            <legend>Create Account</legend>
-            <label>What's your email address?</label>
-            <input type="email" id="exampleInputEmail1" name="email" placeholder="Enter email"><br>
-            <label>Enter the password you want</label>
-            <input type=password name="password" id="password" placeholder="Enter password"><span id="afterPass"></span><br>
-            <label>Retype your password</label>
-            <input type=password name="password2" id="password2" placeholder="Retype password"><br>
-            <button type="submit" name="create" class="btn btn-primary">Create Account</button>
-        </fieldset>
+<div class="container">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <h1>Register</h1>
+            </div>
+        </div>
     </div>
-</form>
+    <div class="bs-docs-section">
+        <div class="row">
+            <div class="col-xs-6 col-md-4"></div>
+            <form class="form-horizontal col-xs-6 col-md-4" action="" method="post" >
+                <fieldset>
+                    <div class="form-group">
+                        <label for="email" class="col-lg-2 control-label"></label>
+                        <div class="col-lg-10">
+                            <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-lg-2 control-label"></label>
+                        <div class="col-lg-10">
+                            <input type="password" class="form-control" id="password" name="password"
+                                   placeholder="Password" required
+                            >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button type="submit" class="btn btn-danger col-lg-12">Register</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
+</div>
 </body>

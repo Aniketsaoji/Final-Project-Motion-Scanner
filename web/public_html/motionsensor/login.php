@@ -44,7 +44,7 @@ doLogin();
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.php">Create Account</a></li>
+                <li><a href="create.php">Create Account</a></li>
             </ul>
         </div>
     </div>
@@ -59,8 +59,8 @@ doLogin();
     </div>
     <div class="bs-docs-section">
         <div class="row">
-            <div class="col-lg-3"></div>
-            <form class="form-horizontal col-lg-6" action="" method="post" >
+            <div class="col-xs-6 col-md-4"></div>
+            <form class="form-horizontal col-xs-6 col-md-4" action="" method="post" >
                 <fieldset>
                     <div class="form-group">
                         <label for="email" class="col-lg-2 control-label"></label>
@@ -78,8 +78,7 @@ doLogin();
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
-                            <button type="button" class="btn btn-danger">Register</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary col-lg-12">Submit</button>
                         </div>
                     </div>
                 </fieldset>
