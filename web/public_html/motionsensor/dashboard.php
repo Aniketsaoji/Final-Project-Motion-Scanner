@@ -94,31 +94,63 @@ if (!isloggedin()) {
                         </div>
                     </div>
                 </div>
-				<div class = "col-lg-4">
-					<h4>Crime near you</h4>
+                <div class="panel-body">
+                    <canvas id="canvas">
+                    </canvas>
+                </div>
+
+                <div class="panel-footer">
+                    Change Property
+                </div>
+            </div>
+        </div>
+		<div class="col-lg-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    Crime Near You
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                Properties
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li><a href="#">Action</a>
+                                </li>
+                                <li><a href="#">Another action</a>
+                                </li>
+                                <li><a href="#">Something else here</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+				<div class = "col-lg-8">
+					<h2>Test</h2>
 					<?php
-	
-	$myChoice2 = "http://s3.spotcrime.com/cache/rss/kalamazoo-westnedge-hill.xml";				
-	$rss =  simplexml_load_file($myChoice2);
-	$title =  $rss->channel->title;
-	echo "<h5>$title</h5>";
-
-	# I would like to do this:
-	#     foreach ($rss->channel->item as $item) {
-	# or this:
-	#     foreach ($rss->item as $item) {
-	# but which one depends on the rss version in use.
-
-	$items = $rss->channel->item; # try, works some versions
-	if (!$items)
-		$items = $rss->item; # works other versions
-
-	foreach ($items as $item) {
-        echo '<a href="' . $item->link . '">' . $item->title . '</a><br>';
-        echo $item->description . "\n";
-	}
+					$response = file_get_contents('http://ziptasticapi.com/02135');
+					echo $response . "<br>";
+					$value = $response[city];
+					echo $value . "<br>";
 					
+					
+					$myChoice2 = "http://s3.spotcrime.com/cache/rss/kalamazoo-westnedge-hill.xml";				
+					$rss =  simplexml_load_file($myChoice2);
+					$title =  $rss->channel->title;
+					echo "<h5>$title</h5>";
+					$items = $rss->channel->item; # try, works some versions
+					if (!$items)
+						$items = $rss->item; # works other versions
+					foreach ($items as $item) {
+						echo $item->pubDate . "<br>";
+						echo '<a href="' . $item->link . '">' . $item->title . '</a><br>';
+						echo $item->description . "<br>";
+					}
 					?>
+					
 				</div>
                 <div class="panel-body">
                     <canvas id="canvas">
