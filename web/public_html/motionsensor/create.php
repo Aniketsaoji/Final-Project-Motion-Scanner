@@ -160,7 +160,7 @@ if(is_array($POST_vars)){
                     </div>
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <input type="number" class="form-control" id="zip" name="zip" min="10000" max="99999" step="1" placeholder="Zip Code">
+                            <input type="number" class="form-control" id="zip" name="zip" min="00001" max="99999" step="1" placeholder="Zip Code">
                         </div>
                     </div>
                     <div class="form-group">
