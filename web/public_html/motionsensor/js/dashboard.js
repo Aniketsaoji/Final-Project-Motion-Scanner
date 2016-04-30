@@ -1,28 +1,37 @@
-var dta;
-
 window.onload = function() {
     var ctx = document.getElementById("canvas").getContext("2d");
     var chartData;
     $.post("data/getSensorData.php",
         {
-            sid: 1,
-            minutes: 30
+            sid: 2,
+            minutes: 10
         },
         function (data, status) {
-            makeChart(JSON.parse(data));
+            var parsedData = JSON.parse(data);
+            makeChart(parsedData, ctx);
     });
 };
 
-function makeChart(chartData, ctx){
-    dta = chartData;
+function getProperties(){
+
+}
+
+function makeChart(Points, ctx){
+    var labels = [];
+    var pts = [];
+    for(var i = 0; i < Points.length; ++i){
+        labels.push(Points[i].x);
+        pts.push(Points[i].y);
+    }
     var myLineChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
+            labels: labels,
             datasets: [
                 {
                     label: "Sensor 1",
                     fill: false,
-                    lineTension: 0.2,
+                    lineTension: 0.1,
                     backgroundColor: "rgba(75,192,192,0.4)",
                     borderColor: "rgba(75,192,192,1)",
                     borderCapStyle: 'butt',
@@ -38,15 +47,28 @@ function makeChart(chartData, ctx){
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    data: chartData,
+                    data: pts,
                 }
             ]
         },
         options: {
             scales: {
                 yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Pings Per Minute"
+                    },
                     ticks: {
-                        beginAtZero:true
+                        beginAtZero: true,
+                        min: 0,
+                        max: 5,
+                        stepWidth: 2
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Time"
                     }
                 }]
             }

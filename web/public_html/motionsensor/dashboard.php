@@ -70,7 +70,7 @@ if (!isloggedin()) {
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-6">
             <div class="panel panel-success">
                 <div class="panel-heading">
                     Properties
@@ -103,9 +103,7 @@ if (!isloggedin()) {
                 </div>
             </div>
         </div>
-
         <div class="col-xs-6 col-sm-4">
-
         </div>
     </div>
     <div>
