@@ -94,15 +94,43 @@ if (!isloggedin()) {
                         </div>
                     </div>
                 </div>
+				<div class = "col-lg-4">
+					<h4>Crime near you</h4>
+					<?php
+	
+	$myChoice2 = "http://s3.spotcrime.com/cache/rss/kalamazoo-westnedge-hill.xml";				
+	$rss =  simplexml_load_file($myChoice2);
+	$title =  $rss->channel->title;
+	echo "<h5>$title</h5>";
+
+	# I would like to do this:
+	#     foreach ($rss->channel->item as $item) {
+	# or this:
+	#     foreach ($rss->item as $item) {
+	# but which one depends on the rss version in use.
+
+	$items = $rss->channel->item; # try, works some versions
+	if (!$items)
+		$items = $rss->item; # works other versions
+
+	foreach ($items as $item) {
+        echo '<a href="' . $item->link . '">' . $item->title . '</a><br>';
+        echo $item->description . "\n";
+	}
+					
+					?>
+				</div>
                 <div class="panel-body">
                     <canvas id="canvas">
                     </canvas>
                 </div>
+
                 <div class="panel-footer">
                     Change Property
                 </div>
             </div>
         </div>
+
         <div class="col-xs-6 col-sm-4">
         </div>
     </div>
