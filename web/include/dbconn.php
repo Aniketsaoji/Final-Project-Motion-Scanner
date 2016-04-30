@@ -7,14 +7,6 @@ function connect_to_db( $dbname ){
 	return $dbc;
 }
 
-function perform_query( $dbc, $query ){
-    
-    //echo "My query is >$query< <br />";
-    $result = mysqli_query($dbc, $query) or 
-            die( "bad query".mysqli_error( $dbc ) );
-    return $result;
-}
-
 function disconnect_from_db(PDO $dbc){
     // Done implicitly with PDO :)
 }

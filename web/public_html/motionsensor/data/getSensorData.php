@@ -27,7 +27,7 @@ function getSensorData($dbc, $sensorId, $timePeriod)
     return json_encode($rows);
 }
 
-$userId = isloggedin_getUser();
+$userId = isloggedin(true);
 $dbc = connect_to_db("mitchko");
 if ($userId != false) {
     $sensorId = filter_input(INPUT_POST, 'sid', FILTER_SANITIZE_NUMBER_INT);

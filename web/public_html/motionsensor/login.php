@@ -1,6 +1,10 @@
 <?php
 @include '../../include/user.php';
 
+if(isloggedin()){
+    redirect('dashboard.php');
+}
+
 doLogin();
 // TODO: Add logout message when $_GET['logout'] is set
 ?>

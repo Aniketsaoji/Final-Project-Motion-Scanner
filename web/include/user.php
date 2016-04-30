@@ -19,27 +19,16 @@ function generateRandomString($length = 10)
     return $randomString;
 }
 
-function isloggedin()
+function isloggedin($returnId=false)
 {
     $dbc = connect_to_db("mitchko");
     if (isset($_COOKIE['session'])) {
         $browserCookie = $_COOKIE['session'];
         $rows = perform_query_select($dbc, "SELECT * FROM mitchko.ACCOUNTS WHERE `currentCookieTimestamp` >= DATE_SUB(NOW(), INTERVAL 30 MINUTE ) AND `currentCookie`=?", array($browserCookie => PDO::PARAM_STR));
         if (count($rows) > 0) {
-            return strcmp($browserCookie, $rows[0]['currentCookie']) == 0;
-        }
-    }
-    return false;
-}
-
-function isloggedin_getUser()
-{
-    $dbc = connect_to_db("mitchko");
-    if (isset($_COOKIE['session'])) {
-        $browserCookie = $_COOKIE['session'];
-        $rows = perform_query_select($dbc, "SELECT * FROM mitchko.ACCOUNTS WHERE `currentCookieTimestamp` >= DATE_SUB(NOW(), INTERVAL 30 MINUTE ) AND `currentCookie`=?", array($browserCookie => PDO::PARAM_STR));
-        if (count($rows) > 0) {
-            return strcmp($browserCookie, $rows[0]['currentCookie']) == 0 ? $rows[0]['ID'] : false;
+            if(strcmp($browserCookie, $rows[0]['currentCookie']) == 0){
+                return $returnId ? $rows[0]['ID'] : true;
+            }
         }
     }
     return false;
@@ -74,7 +63,7 @@ function checkLogin(PDO $dbc)
 function setLoginCookie($dbc, $id, $email, $lastname)
 {
     $cookieHash = hash('sha1', $id . $email . $lastname . generateRandomString());
-    setcookie('session', $cookieHash);
+    setcookie('session', $cookieHash, time() + (86400 * 30), "/");
     perform_query_update($dbc, 'UPDATE ACCOUNTS SET `currentCookie`=?, `currentCookieTimestamp`=now() WHERE `ID`=?', array($cookieHash, $id));
 }
 
@@ -98,7 +87,7 @@ function doLogin($redirect = 'dashboard.php')
 
 function doLogout($redirect = 'login.php')
 {
-    setcookie('session', '000000000000000000000000000000000000000000000000');
+    setcookie('session', '000000000000000000000000000000000000000000000000', time() - 3600, '/');
     header("Location: " . $redirect);
 }
 
