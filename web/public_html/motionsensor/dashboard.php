@@ -13,12 +13,22 @@ $spotCrimeAPI = 'http://api.spotcrime.com/crimes.json?radius=0.02&key=.&_=' . ti
 $googleMapsAPI = 'http://maps.googleapis.com/maps/api/geocode/json?address=';           // Simply append the zip code to get a nice response
 $properties;
 $user_id;
+$zipCode;
 if (!isloggedin()) {
     header("Location: login.php");
     die();
 } else{
     $user_id = isloggedin(true);
     $properties = getUserProperties($user_id);
+}
+
+function validateFeed( $sFeedURL )
+{
+	libxml_use_internal_errors(true);
+$sxe = simplexml_load_string($sxe);
+if ($sxe === false) {
+   return false;
+    }
 }
 ?>
 
@@ -104,6 +114,7 @@ if (!isloggedin()) {
                     <div class="panel-footer">
                         <?php
                             echo $property['StreetAddress'] . ", " . $property['ZipCode'];
+							$zipCode = $property['ZipCode'];
                         ?>
                     </div>
                 </div>
@@ -136,15 +147,22 @@ if (!isloggedin()) {
                         </div>
                     </div>
                 </div>
-                <h2>Test</h2>
                 <?php
-                $response = file_get_contents('http://ziptasticapi.com/02135');
-                echo $response . "<br>";
-                $value = $response[city];
-                echo $value . "<br>";
-
-
-                $myChoice2 = "http://s3.spotcrime.com/cache/rss/kalamazoo-westnedge-hill.xml";
+                $response = file_get_contents('http://ziptasticapi.com/'.$zipCode);
+				$obj = json_decode($response);
+				$city = $obj->city;
+				$state = $obj->state;
+				$city = strtolower($city);
+				$state = strtolower($state);
+				$checkers = True;
+				
+                $myChoice2 = "http://s3.spotcrime.com/cache/rss/".$state."-".$city.".xml";
+				echo $myChoice2 . "<br>";
+				$headers = get_headers($myChoice2, 1);
+				if ($headers[0] == 'HTTP/1.1 404 Not Found') {
+					$checkers = False;
+					$myChoice2 = "http://s3.spotcrime.com/cache/rss/".$city.".xml";
+				}			
                 $rss = simplexml_load_file($myChoice2);
                 $title = $rss->channel->title;
                 echo "<h5>$title</h5>";
