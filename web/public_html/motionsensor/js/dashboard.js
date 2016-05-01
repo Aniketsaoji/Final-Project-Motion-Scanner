@@ -24,7 +24,7 @@ window.onload = function () {
         var sensorIDs = JSON.parse(data);
         var Data = [];
         for (var i = 0; i < sensorIDs.length; ++i) {
-            Data.push(getSensorData(sensorIDs[i], 10));
+            Data.push(getSensorData(sensorIDs[i], 24));
         }
         $.when.apply(null, Data).done(
             function(){
@@ -50,7 +50,7 @@ function makeChart(SensorData, ctx) {
         var pts = [];
         for (var j = 0; j < SensorData[i].length; ++j) {
             if(i == 0){
-                labels.push(SensorData[0][j].x +  " min ago" );
+                labels.push(SensorData[0][j].x +  " hours ago" );
             } else if(i == (SensorData.length -1)){
 
             }
@@ -93,12 +93,11 @@ function makeChart(SensorData, ctx) {
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: "Pings Per Minute"
+                        labelString: "Pings Per Hour"
                     },
                     ticks: {
                         beginAtZero: true,
                         min: 0,
-                        max: 5,
                         stepWidth: 2
                     }
                 }],
@@ -113,14 +112,14 @@ function makeChart(SensorData, ctx) {
     });
 }
 
-function getSensorData(sensorId, timeInMinutes) {
+function getSensorData(sensorId, timeInHours) {
     return $.post("data/getSensorData.php",
         {
             sid: sensorId,
-            minutes: timeInMinutes
+            minutes: timeInHours
         });
 }
 
 function computeAverage(SensorData){
-    
+
 }
