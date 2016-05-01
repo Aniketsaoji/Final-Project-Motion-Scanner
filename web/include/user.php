@@ -124,3 +124,8 @@ function getUserProperties($id){
     $dbc = connect_to_db("mitchko");
     return perform_query_select($dbc, 'select * from mitchko.Properties where `AssociatedAccountID`=?', array($id => PDO::PARAM_STR));
 }
+
+function getUserZip($id) {
+    $dbc = connect_to_db("mitchko");
+    return perform_query_select($dbc, 'select ZipCode from mitchko.Properties where `AssociatedAccountID`=?', array($id => PDO::PARAM_STR));
+}
