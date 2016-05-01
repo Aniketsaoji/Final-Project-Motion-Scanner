@@ -11,6 +11,7 @@ $zipCode = 02135;
 $spotCrimeAPI = 'http://api.spotcrime.com/crimes.json?radius=0.02&key=.&_=' . time();   // spot crime API => idiots, if you use the API key=. and supply the current timestamp they give you the data lol
                                                                                         // append a lat and lng get parameter to make it work
 $googleMapsAPI = 'http://maps.googleapis.com/maps/api/geocode/json?address=';           // Simply append the zip code to get a nice response
+
 $properties;
 $user_id;
 $zipCode;
@@ -20,15 +21,6 @@ if (!isloggedin()) {
 } else{
     $user_id = isloggedin(true);
     $properties = getUserProperties($user_id);
-}
-
-function validateFeed( $sFeedURL )
-{
-	libxml_use_internal_errors(true);
-$sxe = simplexml_load_string($sxe);
-if ($sxe === false) {
-   return false;
-    }
 }
 ?>
 
@@ -181,7 +173,6 @@ if ($sxe === false) {
                 </div>
 
                 <div class="panel-footer">
-                    Change Property
                 </div>
             </div>
         </div>

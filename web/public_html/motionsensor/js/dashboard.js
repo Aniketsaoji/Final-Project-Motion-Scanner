@@ -10,53 +10,56 @@ var colors = [
     "rgba(142, 68, 173,1.0)"
 ];
 
-function getChartColor(i){
+function getChartColor(i) {
     return colors[i % colors.length];
 }
 
+var debug;
+
 window.onload = function () {
-    var ctx = document.getElementById("canvas").getContext("2d");
     var sensorData = [];
-    $(document).ajaxStop(function(){
-        makeChart(sensorData, ctx);
-    });
     $.get('data/getSensorData.php', {
             propertyID: 1
         }, function (data, status) {
-            var sensorIDs = JSON.parse(data);
-            for (var i = 0; i < sensorIDs.length; ++i) {
-                $.post("data/getSensorData.php",
-                    {
-                        sid: sensorIDs[i],
-                        minutes: 10
-                    },
-                    function (data, status) {
-                        parsed = JSON.parse(data);
-                        if(parsed.length > 0){
-                            sensorData.push(parsed);
-                        }
-                    });
+        var sensorIDs = JSON.parse(data);
+        var Data = [];
+        for (var i = 0; i < sensorIDs.length; ++i) {
+            Data.push(getSensorData(sensorIDs[i], 10));
+        }
+        $.when.apply(null, Data).done(
+            function(){
+                var SensorData = [];
+                for(var i =0; i < arguments.length; ++i){
+                    var movementData = JSON.parse(arguments[i][0]);
+                    if(movementData.length > 0){
+                        SensorData.push(movementData);
+                    }
+                }
+                makeChart(SensorData, document.getElementById("canvas").getContext("2d"));
             }
+        );
         }
     );
 };
 
 function makeChart(SensorData, ctx) {
+    debug = SensorData;
     var labels = [];
     var sets = [];
     for (var i = 0; i < SensorData.length; ++i) {
-        if (i == 0) {
-            for (var j = 0; j < SensorData[0].length; ++j) {
-                labels.push(SensorData[0][j].x);
-            }
-        }
         var pts = [];
-        for(var j = 0; j < SensorData[i].length; ++j){
+        for (var j = 0; j < SensorData[i].length; ++j) {
+            if(i == 0){
+                labels.push(SensorData[0][j].x +  " min ago" );
+            } else if(i == (SensorData.length -1)){
+
+            }
             pts.push(SensorData[i][j].y);
         }
-        if(pts.length > 0){
+        if (pts.length > 0) {
             var chartColor = getChartColor(i);
             sets.push({
+                type: 'bar',
                 label: "Sensor " + i,
                 fill: false,
                 lineTension: 0.1,
@@ -80,7 +83,7 @@ function makeChart(SensorData, ctx) {
         }
     }
     var myLineChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: labels,
             datasets: sets
@@ -108,4 +111,16 @@ function makeChart(SensorData, ctx) {
             }
         }
     });
+}
+
+function getSensorData(sensorId, timeInMinutes) {
+    return $.post("data/getSensorData.php",
+        {
+            sid: sensorId,
+            minutes: timeInMinutes
+        });
+}
+
+function computeAverage(SensorData){
+    
 }
