@@ -114,3 +114,8 @@ function createProperty(PDO $dbc, array $postVars, $id)
 {
     perform_query_insert_noparam($dbc, 'insert into mitchko.Properties (StreetAddress, AssociatedAccountID, ZipCode) values(?,?,?)', array($postVars['address'], $id, $postVars['zip']));
 }
+
+function getUserProperties($id){
+    $dbc = connect_to_db("mitchko");
+    return perform_query_select($dbc, 'select * from mitchko.Properties where `AssociatedAccountID`=?', array($id => PDO::PARAM_STR));
+}

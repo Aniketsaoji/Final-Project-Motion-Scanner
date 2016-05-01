@@ -7,12 +7,18 @@
  */
 @include '../../include/user.php';
 
-$loggedIn = false;
-
+$zipCode = 02135;
+$spotCrimeAPI = 'http://api.spotcrime.com/crimes.json?radius=0.02&key=.&_=' . time();   // spot crime API => idiots, if you use the API key=. and supply the current timestamp they give you the data lol
+                                                                                        // append a lat and lng get parameter to make it work
+$googleMapsAPI = 'http://maps.googleapis.com/maps/api/geocode/json?address=';           // Simply append the zip code to get a nice response
+$properties;
+$user_id;
 if (!isloggedin()) {
     header("Location: login.php");
-} else {
-    $loggedIn = true;
+    die();
+} else{
+    $user_id = isloggedin(true);
+    $properties = getUserProperties($user_id);
 }
 ?>
 
@@ -45,21 +51,9 @@ if (!isloggedin()) {
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <?php
-            // Added so that the login button doesn't show up
-            if (!$loggedIn) {
-                ?>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login.php">Login</a></li>
-                </ul>
-                <?php
-            } else { ?>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="logout.php">Logout</a></li>
-                </ul>
-                <?php
-            }
-            ?>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
         </div>
     </div>
 </nav>
@@ -71,40 +65,54 @@ if (!isloggedin()) {
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    Properties
-                    <div class="pull-right">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                Properties
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu pull-right" role="menu">
-                                <li><a href="#">Action</a>
-                                </li>
-                                <li><a href="#">Another action</a>
-                                </li>
-                                <li><a href="#">Something else here</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a>
-                                </li>
-                            </ul>
+            <?php
+            $i = 1;
+            foreach($properties as $property) {
+                ?>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        Property
+                        <?php
+                        echo $i;
+                        ?>
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle"
+                                        data-toggle="dropdown">
+                                    Property
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="#">Action</a>
+                                    </li>
+                                    <li><a href="#">Another action</a>
+                                    </li>
+                                    <li><a href="#">Something else here</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="panel-body">
-                    <canvas id="canvas">
-                    </canvas>
-                </div>
+                    <div class="panel-body">
+                        <canvas id="canvas">
+                        </canvas>
+                    </div>
 
-                <div class="panel-footer">
-                    Change Property
+                    <div class="panel-footer">
+                        <?php
+                            echo $property['StreetAddress'] . ", " . $property['ZipCode'];
+                        ?>
+                    </div>
                 </div>
-            </div>
+                <?php
+                ++$i;
+            }
+            ?>
         </div>
-		<div class="col-lg-6">
+        <div class="col-lg-6">
             <div class="panel panel-success">
                 <div class="panel-heading">
                     Crime Near You
@@ -128,30 +136,27 @@ if (!isloggedin()) {
                         </div>
                     </div>
                 </div>
-				<div class = "col-lg-8">
-					<h2>Test</h2>
-					<?php
-					$response = file_get_contents('http://ziptasticapi.com/02135');
-					echo $response . "<br>";
-					$value = $response[city];
-					echo $value . "<br>";
-					
-					
-					$myChoice2 = "http://s3.spotcrime.com/cache/rss/kalamazoo-westnedge-hill.xml";				
-					$rss =  simplexml_load_file($myChoice2);
-					$title =  $rss->channel->title;
-					echo "<h5>$title</h5>";
-					$items = $rss->channel->item; # try, works some versions
-					if (!$items)
-						$items = $rss->item; # works other versions
-					foreach ($items as $item) {
-						echo $item->pubDate . "<br>";
-						echo '<a href="' . $item->link . '">' . $item->title . '</a><br>';
-						echo $item->description . "<br>";
-					}
-					?>
-					
-				</div>
+                <h2>Test</h2>
+                <?php
+                $response = file_get_contents('http://ziptasticapi.com/02135');
+                echo $response . "<br>";
+                $value = $response[city];
+                echo $value . "<br>";
+
+
+                $myChoice2 = "http://s3.spotcrime.com/cache/rss/kalamazoo-westnedge-hill.xml";
+                $rss = simplexml_load_file($myChoice2);
+                $title = $rss->channel->title;
+                echo "<h5>$title</h5>";
+                $items = $rss->channel->item; # try, works some versions
+                if (!$items)
+                    $items = $rss->item; # works other versions
+                foreach ($items as $item) {
+                    echo $item->pubDate . "<br>";
+                    echo '<a href="' . $item->link . '">' . $item->title . '</a><br>';
+                    echo $item->description . "<br>";
+                }
+                ?>
                 <div class="panel-body">
                     <canvas id="canvas">
                     </canvas>

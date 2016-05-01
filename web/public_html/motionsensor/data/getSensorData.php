@@ -24,15 +24,31 @@ function doesUserOwnSensor(PDO $dbc, $sensorId, $userId)
 function getSensorData($dbc, $sensorId, $timePeriod)
 {
     $rows = perform_query_select($dbc, 'SELECT TIMESTAMPDIFF(MINUTE, `motiontime`, NOW()) as x, count(`entry`) as y FROM mitchko.Security WHERE motiontime >= DATE_SUB(NOW(), INTERVAL ? MINUTE ) AND sensorId=? group by minute(`motiontime`) order by x DESC', array($timePeriod => PDO::PARAM_LOB,$sensorId => PDO::PARAM_INT));
-    return json_encode($rows);
+    return $rows;
+}
+
+function getSensorsByProperty(PDO $dbc, $propertyID, $userId){
+    $rows = perform_query_select($dbc, 'select (sensorid) from mitchko.Sensor where `propertyid`=?', array($propertyID => PDO::PARAM_LOB));
+    $sensors = array();
+    foreach($rows as $sensor){
+        if(doesUserOwnSensor($dbc, $sensor['sensorid'], $userId)){
+            array_push($sensors, $sensor['sensorid']);
+        }
+    }
+    return $sensors;
 }
 
 $userId = isloggedin(true);
 $dbc = connect_to_db("mitchko");
 if ($userId != false) {
-    $sensorId = filter_input(INPUT_POST, 'sid', FILTER_SANITIZE_NUMBER_INT);
-    $timePeriod = filter_input(INPUT_POST, 'minutes', FILTER_SANITIZE_NUMBER_INT);
-    if (doesUserOwnSensor($dbc, $sensorId, $userId)) {
-        echo getSensorData($dbc, $sensorId, $timePeriod);
+    $propertyID = filter_input(INPUT_GET, 'propertyID', FILTER_SANITIZE_NUMBER_INT);
+    if($propertyID != null && $propertyID != false){
+        echo json_encode(getSensorsByProperty($dbc, $propertyID, $userId));
+    } else {
+        $sensorId = filter_input(INPUT_POST, 'sid', FILTER_SANITIZE_NUMBER_INT);
+        $timePeriod = filter_input(INPUT_POST, 'minutes', FILTER_SANITIZE_NUMBER_INT);
+        if (doesUserOwnSensor($dbc, $sensorId, $userId)) {
+            echo json_encode(getSensorData($dbc, $sensorId, $timePeriod));
+        }
     }
 }
