@@ -62,7 +62,7 @@ var zones = new Array(false, false, false, false, false);
 // Function to insert the values to a database
 function updateDatabase() {
     for(var i = 0; i < 5; i++){
-        if(zones[i]){
+        if(zones[i] == true){
             var url = 'http://cscilab.bc.edu/~mitchko/motionsensor/update.php?sid=' + (i + 1);
             exec('wget -qO- ' + url + " &> /dev/null", function(error, stdout, stderr){
                 console.log("Updated, " + i);
