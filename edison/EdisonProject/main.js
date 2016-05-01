@@ -65,7 +65,6 @@ function updateDatabase() {
         if(zones[i] == true){
             var url = 'http://cscilab.bc.edu/~mitchko/motionsensor/update.php?sid=' + (i + 1);
             exec('wget -qO- ' + url + " &> /dev/null", function(error, stdout, stderr){
-                console.log("Updated, " + i);
             });
         }
     }
