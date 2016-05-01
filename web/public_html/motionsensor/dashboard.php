@@ -149,7 +149,6 @@ if (!isloggedin()) {
 				$checkers = True;
 				
                 $myChoice2 = "http://s3.spotcrime.com/cache/rss/".$state."-".$city.".xml";
-				echo $myChoice2 . "<br>";
 				$headers = get_headers($myChoice2, 1);
 				if ($headers[0] == 'HTTP/1.1 404 Not Found') {
 					$checkers = False;
@@ -161,6 +160,9 @@ if (!isloggedin()) {
                 $items = $rss->channel->item; # try, works some versions
                 if (!$items)
                     $items = $rss->item; # works other versions
+				if (count($items) == 0) {
+					echo "There is no crime in your area";
+				}
                 foreach ($items as $item) {
                     echo $item->pubDate . "<br>";
                     echo '<a href="' . $item->link . '">' . $item->title . '</a><br>';
