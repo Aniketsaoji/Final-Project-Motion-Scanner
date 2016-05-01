@@ -133,8 +133,9 @@ if (!isloggedin()) {
 					<?php
 					$response = file_get_contents('http://ziptasticapi.com/02135');
 					echo $response . "<br>";
-					$value = $response[city];
-					echo $value . "<br>";
+					$info = json_encode($response);
+					echo $info->city . "<br>";
+
 					
 					
 					$myChoice2 = "http://s3.spotcrime.com/cache/rss/kalamazoo-westnedge-hill.xml";				
