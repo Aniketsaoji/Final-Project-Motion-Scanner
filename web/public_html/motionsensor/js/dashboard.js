@@ -31,7 +31,10 @@ window.onload = function () {
                         minutes: 10
                     },
                     function (data, status) {
-                        sensorData.push(JSON.parse(data));
+                        parsed = JSON.parse(data);
+                        if(parsed.length > 0){
+                            sensorData.push(parsed);
+                        }
                     });
             }
         }
@@ -51,32 +54,33 @@ function makeChart(SensorData, ctx) {
         for(var j = 0; j < SensorData[i].length; ++j){
             pts.push(SensorData[i][j].y);
         }
-        console.log(pts);
-        var chartColor = getChartColor(i);
-        sets.push({
-            label: "Sensor " + i,
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: chartColor,
-            borderColor: chartColor,
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: chartColor,
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: chartColor,
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            data: pts,
-        });
+        if(pts.length > 0){
+            var chartColor = getChartColor(i);
+            sets.push({
+                label: "Sensor " + i,
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: chartColor,
+                borderColor: chartColor,
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: chartColor,
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: chartColor,
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: pts,
+            });
+        }
     }
     var myLineChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: labels,
             datasets: sets

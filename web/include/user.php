@@ -27,11 +27,16 @@ function isloggedin($returnId=false)
         $rows = perform_query_select($dbc, "SELECT * FROM mitchko.ACCOUNTS WHERE `currentCookieTimestamp` >= DATE_SUB(NOW(), INTERVAL 30 MINUTE ) AND `currentCookie`=?", array($browserCookie => PDO::PARAM_STR));
         if (count($rows) > 0) {
             if(strcmp($browserCookie, $rows[0]['currentCookie']) == 0){
+                
                 return $returnId ? $rows[0]['ID'] : true;
             }
         }
     }
     return false;
+}
+
+function updateSessionTimestamp($dbc, $id, $browserCookie){
+    perform_query_update($dbc, "UPDATE mitchko.ACCOUNTS SET `currentCookieTimestamp`=NOW() WHERE `ID`=? AND `currentCookie`=?", array($id, $browserCookie));
 }
 
 function getLoginCredentials()
