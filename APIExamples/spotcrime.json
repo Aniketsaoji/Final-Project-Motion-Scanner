@@ -1,0 +1,392 @@
+{
+  "url":"http://api.spotcrime.com/crimes.json?lat=40.8507116&lon=-73.21755710000002&radius=0.02&key=.&_=1462150409",
+  "crimes": [
+    {
+      "cdid": 76460894,
+      "type": "Vandalism",
+      "date": "04/28/16 09:45 PM",
+      "address": "RIVER HEIGHTS DR",
+      "link": "http://spotcrime.com/crime/76460894-e6fa14a52a872b6c9ce80ab225acf030",
+      "lat": 40.8682621,
+      "lon": -73.2126777
+    },
+    {
+      "cdid": 76284610,
+      "type": "Vandalism",
+      "date": "04/21/16 05:00 PM",
+      "address": "BISHOPS RD",
+      "link": "http://spotcrime.com/crime/76284610-ed0c6ec390b80b72768493aea9669875",
+      "lat": 40.8665356,
+      "lon": -73.2252628
+    },
+    {
+      "cdid": 76260568,
+      "type": "Assault",
+      "date": "04/21/16 04:53 PM",
+      "address": "STONY HILL PA",
+      "link": "http://spotcrime.com/crime/76260568-0a45a32519d2e6c3f38a336bd35905bb",
+      "lat": 40.8507116,
+      "lon": -73.2175571
+    },
+    {
+      "cdid": 75766996,
+      "type": "Vandalism",
+      "date": "04/16/16 03:20 PM",
+      "address": "W MAIN ST",
+      "link": "http://spotcrime.com/crime/75766996-dcc4433942183fdec732d8d9539f17de",
+      "lat": 40.8564681,
+      "lon": -73.2031323
+    },
+    {
+      "cdid": 75751676,
+      "type": "Theft",
+      "date": "04/15/16 07:48 PM",
+      "address": "W JERICHO TR",
+      "link": "http://spotcrime.com/crime/75751676-91032a6cdb843cffdb438ceba05d09f4",
+      "lat": 40.8478273,
+      "lon": -73.2329439
+    },
+    {
+      "cdid": 75751679,
+      "type": "Theft",
+      "date": "04/14/16 11:00 PM",
+      "address": "CHERRY LN",
+      "link": "http://spotcrime.com/crime/75751679-56bc2fbf543fa471cd8c4389c0b4a26e",
+      "lat": 40.8594224,
+      "lon": -73.2043682
+    },
+    {
+      "cdid": 75751655,
+      "type": "Vandalism",
+      "date": "04/14/16 05:00 PM",
+      "address": "BISHOPS RD",
+      "link": "http://spotcrime.com/crime/75751655-a91f61a16a24ab68e09faba9c32c67aa",
+      "lat": 40.8665356,
+      "lon": -73.2252628
+    },
+    {
+      "cdid": 75550803,
+      "type": "Theft",
+      "date": "04/08/16 09:37 PM",
+      "address": "W MAIN ST",
+      "link": "http://spotcrime.com/crime/75550803-e822171580577ab599510914fe17e78a",
+      "lat": 40.8564681,
+      "lon": -73.2031323
+    },
+    {
+      "cdid": 75508284,
+      "type": "Burglary",
+      "date": "04/05/16 11:00 PM",
+      "address": "W JERICHO TP",
+      "link": "http://spotcrime.com/crime/75508284-4bd559fc3e34344eb079353b508d2d37",
+      "lat": 40.8478273,
+      "lon": -73.2329439
+    },
+    {
+      "cdid": 75676451,
+      "type": "Vandalism",
+      "date": "04/01/16 06:24 PM",
+      "address": "LILAC",
+      "link": "http://spotcrime.com/crime/75676451-280fffca8e576c8c20567f7fc92044f8",
+      "lat": 40.834927,
+      "lon": -73.209835
+    },
+    {
+      "cdid": 75040068,
+      "type": "Vandalism",
+      "date": "04/01/16 06:24 PM",
+      "address": "LILAC",
+      "link": "http://spotcrime.com/crime/75040068-7be7869ff354636a249121d867206d47",
+      "lat": 40.8351043,
+      "lon": -73.2064694
+    },
+    {
+      "cdid": 74922451,
+      "type": "Assault",
+      "date": "03/28/16 08:00 PM",
+      "address": "CYGNET DR",
+      "link": "http://spotcrime.com/crime/74922451-295a13c8bfda9e1163e48aef67d685e2",
+      "lat": 40.8462558,
+      "lon": -73.2145372
+    },
+    {
+      "cdid": 74840569,
+      "type": "Assault",
+      "date": "03/25/16 12:43 AM",
+      "address": "CYGNET DR",
+      "link": "http://spotcrime.com/crime/74840569-2c923a7309788013c832fae334e6cf40",
+      "lat": 40.8462558,
+      "lon": -73.2145372
+    },
+    {
+      "cdid": 74791264,
+      "type": "Assault",
+      "date": "03/23/16 11:34 PM",
+      "address": "CYGNET DR",
+      "link": "http://spotcrime.com/crime/74791264-a938941a3a2b05bd3fb0afa78c7610fe",
+      "lat": 40.8462558,
+      "lon": -73.2145372
+    },
+    {
+      "cdid": 74632637,
+      "type": "Theft",
+      "date": "03/17/16 07:00 PM",
+      "address": "W JERICHO",
+      "link": "http://spotcrime.com/crime/74632637-324fcbc002b1c250990729526a57c1bd",
+      "lat": 40.8478273,
+      "lon": -73.2329439
+    },
+    {
+      "cdid": 74303910,
+      "type": "Assault",
+      "date": "03/06/16 09:00 AM",
+      "address": "W MAIN ST",
+      "link": "http://spotcrime.com/crime/74303910-e5a79ae8081035fd46d5287a93eca91b",
+      "lat": 40.8564681,
+      "lon": -73.2031323
+    },
+    {
+      "cdid": 74331349,
+      "type": "Theft",
+      "date": "03/05/16 04:45 PM",
+      "address": "NESCONSET",
+      "link": "http://spotcrime.com/crime/74331349-3c593838f80760a1bec0ede1f89d9ea4",
+      "lat": 40.85134,
+      "lon": -73.2001382
+    },
+    {
+      "cdid": 73841860,
+      "type": "Vandalism",
+      "date": "02/19/16 04:44 PM",
+      "address": "MAYFLOWER AV",
+      "link": "http://spotcrime.com/crime/73841860-a00c57cf2aeea4b5dffd17d96cc4e69a",
+      "lat": 40.8550556,
+      "lon": -73.2029624
+    },
+    {
+      "cdid": 73778512,
+      "type": "Vandalism",
+      "date": "02/17/16 07:30 PM",
+      "address": "WILDWOOD LA",
+      "link": "http://spotcrime.com/crime/73778512-fa4c092f66876e2a655eb8749498f6d1",
+      "lat": 40.8470668,
+      "lon": -73.2021203
+    },
+    {
+      "cdid": 73807113,
+      "type": "Vandalism",
+      "date": "02/17/16 07:00 PM",
+      "address": "MAYFLOWER AV",
+      "link": "http://spotcrime.com/crime/73807113-d2e8ae4da32a68b903d7f665cc07012c",
+      "lat": 40.8550556,
+      "lon": -73.2029624
+    },
+    {
+      "cdid": 73502582,
+      "type": "Theft",
+      "date": "02/09/16 11:05 AM",
+      "address": "W MAIN ST",
+      "link": "http://spotcrime.com/crime/73502582-6c87917958d83bef3309c01acd9ae15b",
+      "lat": 40.8564681,
+      "lon": -73.2031323
+    },
+    {
+      "cdid": 73051206,
+      "type": "Theft",
+      "date": "02/02/16 11:00 PM",
+      "address": "ECKERNKAMP DR",
+      "link": "http://spotcrime.com/crime/73051206-48d0330fa22cb26ced964af13f506a56",
+      "lat": 40.8653367,
+      "lon": -73.2104675
+    },
+    {
+      "cdid": 72950472,
+      "type": "Assault",
+      "date": "02/01/16 09:30 PM",
+      "address": "MEADOW RD",
+      "link": "http://spotcrime.com/crime/72950472-e2913d27c49361dd5f5a906513447e18",
+      "lat": 40.860666,
+      "lon": -73.2259204
+    },
+    {
+      "cdid": 72873065,
+      "type": "Assault",
+      "date": "01/30/16 06:00 AM",
+      "address": "THOMAS PL",
+      "link": "http://spotcrime.com/crime/72873065-20c3675b61e4221d9d946eef84cf5e55",
+      "lat": 40.8504733,
+      "lon": -73.2025018
+    },
+    {
+      "cdid": 72848623,
+      "type": "Vandalism",
+      "date": "01/29/16 06:40 PM",
+      "address": "WB VETERANS MEMORIAL",
+      "link": "http://spotcrime.com/crime/72848623-37120a599f3e4a88eed5e088bd007fd0",
+      "lat": 40.8507116,
+      "lon": -73.2175571
+    },
+    {
+      "cdid": 72848625,
+      "type": "Assault",
+      "date": "01/28/16 09:00 PM",
+      "address": "STONY HILL PA",
+      "link": "http://spotcrime.com/crime/72848625-eaf783a223091cb5135c7defa6123596",
+      "lat": 40.8507116,
+      "lon": -73.2175571
+    },
+    {
+      "cdid": 72848627,
+      "type": "Assault",
+      "date": "01/28/16 12:18 AM",
+      "address": "SMITHTOWN BY",
+      "link": "http://spotcrime.com/crime/72848627-212fa9876fee1a0ab8684525f022c24f",
+      "lat": 40.8507116,
+      "lon": -73.2175571
+    },
+    {
+      "cdid": 74499079,
+      "type": "Theft",
+      "date": "01/15/16 09:00 AM",
+      "address": "CRESCENT PL",
+      "link": "http://spotcrime.com/crime/74499079-23ef32fcff83c230678151115304bcc6",
+      "lat": 40.838226,
+      "lon": -73.2020158
+    },
+    {
+      "cdid": 72493053,
+      "type": "Assault",
+      "date": "01/15/16 07:18 AM",
+      "address": "PROSPECT ST",
+      "link": "http://spotcrime.com/crime/72493053-892f7b0465a076f427bfa21ced647663",
+      "lat": 40.8573719,
+      "lon": -73.2002727
+    },
+    {
+      "cdid": 71784765,
+      "type": "Theft",
+      "date": "01/02/16 04:19 PM",
+      "address": "W MAIN ST",
+      "link": "http://spotcrime.com/crime/71784765-f5892e47ab452c5ddc5242ed45a1e520",
+      "lat": 40.8564681,
+      "lon": -73.2031323
+    },
+    {
+      "cdid": 71756635,
+      "type": "Burglary",
+      "date": "12/31/15 08:30 AM",
+      "address": "EVERIT PL",
+      "link": "http://spotcrime.com/crime/71756635-2d249d6f7d787b92fadd1603a9d79389",
+      "lat": 40.8653463,
+      "lon": -73.208955
+    },
+    {
+      "cdid": 71691172,
+      "type": "Theft",
+      "date": "12/27/15 11:00 PM",
+      "address": "CORNELL AV",
+      "link": "http://spotcrime.com/crime/71691172-dd1a990d4e5b965004bafbb1a0fbb2df",
+      "lat": 40.8472162,
+      "lon": -73.1985543
+    },
+    {
+      "cdid": 71691180,
+      "type": "Theft",
+      "date": "12/24/15 11:00 PM",
+      "address": "W YORK AV",
+      "link": "http://spotcrime.com/crime/71691180-fc444297ebdded28d5e9a85742228ba6",
+      "lat": 40.85134,
+      "lon": -73.2001382
+    },
+    {
+      "cdid": 71607593,
+      "type": "Vandalism",
+      "date": "12/24/15 09:30 PM",
+      "address": "OLD LANDERS CT",
+      "link": "http://spotcrime.com/crime/71607593-89eef5d19c8b77a224e0444823d70e01",
+      "lat": 40.8647372,
+      "lon": -73.2169461
+    },
+    {
+      "cdid": 71545892,
+      "type": "Assault",
+      "date": "12/20/15 06:00 PM",
+      "address": "DILLMONT DR",
+      "link": "http://spotcrime.com/crime/71545892-6d5a7fffb6127b8118e15f0f716d1769",
+      "lat": 40.8637292,
+      "lon": -73.2293586
+    },
+    {
+      "cdid": 71098627,
+      "type": "Vandalism",
+      "date": "12/10/15 01:30 PM",
+      "address": "BISHOPS RD",
+      "link": "http://spotcrime.com/crime/71098627-aa7035deef67ebdbe7dca02451476818",
+      "lat": 40.8665356,
+      "lon": -73.2252628
+    },
+    {
+      "cdid": 70374568,
+      "type": "Theft",
+      "date": "11/23/15 08:30 PM",
+      "address": "CRESCENT PL",
+      "link": "http://spotcrime.com/crime/70374568-355725080ae895ceabed2b7b34f23ccb",
+      "lat": 40.838226,
+      "lon": -73.2020158
+    },
+    {
+      "cdid": 70169726,
+      "type": "Theft",
+      "date": "11/16/15 10:30 AM",
+      "address": "W MAIN ST",
+      "link": "http://spotcrime.com/crime/70169726-44bbd2106e9d5b83551d47f94e6d720e",
+      "lat": 40.8564681,
+      "lon": -73.2031323
+    },
+    {
+      "cdid": 70132717,
+      "type": "Vandalism",
+      "date": "11/15/15 03:00 PM",
+      "address": "W MILL RD",
+      "link": "http://spotcrime.com/crime/70132717-2039c3527dc8a406a9fb4b5c3800b4d4",
+      "lat": 40.8501572,
+      "lon": -73.2173102
+    },
+    {
+      "cdid": 70065790,
+      "type": "Vandalism",
+      "date": "11/11/15 08:30 PM",
+      "address": "MEADOW RD",
+      "link": "http://spotcrime.com/crime/70065790-15ab7392258e67ca8601f75ceb172a86",
+      "lat": 40.860666,
+      "lon": -73.2259204
+    },
+    {
+      "cdid": 70231708,
+      "type": "Theft",
+      "date": "11/07/15 10:00 PM",
+      "address": "PATRICIA CT",
+      "link": "http://spotcrime.com/crime/70231708-1cdfeb3927a0848d5bed805c521eadcf",
+      "lat": 40.8663577,
+      "lon": -73.2171677
+    },
+    {
+      "cdid": 69786759,
+      "type": "Assault",
+      "date": "11/02/15 07:17 PM",
+      "address": "DILLMONT DR",
+      "link": "http://spotcrime.com/crime/69786759-cc9a944c6be9636256bcc9525bd1b799",
+      "lat": 40.8637292,
+      "lon": -73.2293586
+    },
+    {
+      "cdid": 69729430,
+      "type": "Theft",
+      "date": "11/01/15 04:10 PM",
+      "address": "TALL TREE LA",
+      "link": "http://spotcrime.com/crime/69729430-71de5a869421dbe32da6861c02f0105b",
+      "lat": 40.8416824,
+      "lon": -73.2006494
+    }
+  ]
+}

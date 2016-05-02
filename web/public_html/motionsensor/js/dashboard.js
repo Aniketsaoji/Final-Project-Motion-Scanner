@@ -17,27 +17,28 @@ function getChartColor(i) {
 var debug;
 
 window.onload = function () {
+    getLatLng($('#table1 tr:last'), 11787);
     var sensorData = [];
     $.get('data/getSensorData.php', {
             propertyID: 1
         }, function (data, status) {
-        var sensorIDs = JSON.parse(data);
-        var Data = [];
-        for (var i = 0; i < sensorIDs.length; ++i) {
-            Data.push(getSensorData(sensorIDs[i], 24));
-        }
-        $.when.apply(null, Data).done(
-            function(){
-                var SensorData = [];
-                for(var i =0; i < arguments.length; ++i){
-                    var movementData = JSON.parse(arguments[i][0]);
-                    if(movementData.length > 0){
-                        SensorData.push(movementData);
-                    }
-                }
-                makeChart(SensorData, document.getElementById("canvas").getContext("2d"));
+            var sensorIDs = JSON.parse(data);
+            var Data = [];
+            for (var i = 0; i < sensorIDs.length; ++i) {
+                Data.push(getSensorData(sensorIDs[i], 24));
             }
-        );
+            $.when.apply(null, Data).done(
+                function () {
+                    var SensorData = [];
+                    for (var i = 0; i < arguments.length; ++i) {
+                        var movementData = JSON.parse(arguments[i][0]);
+                        if (movementData.length > 0) {
+                            SensorData.push(movementData);
+                        }
+                    }
+                    makeChart(SensorData, document.getElementById("canvas").getContext("2d"));
+                }
+            );
         }
     );
 };
@@ -49,9 +50,9 @@ function makeChart(SensorData, ctx) {
     for (var i = 0; i < SensorData.length; ++i) {
         var pts = [];
         for (var j = 0; j < SensorData[i].length; ++j) {
-            if(i == 0){
-                labels.push(SensorData[0][j].x +  " hours ago" );
-            } else if(i == (SensorData.length -1)){
+            if (i == 0) {
+                labels.push(SensorData[0][j].x + " hours ago");
+            } else if (i == (SensorData.length - 1)) {
 
             }
             pts.push(SensorData[i][j].y);
@@ -120,6 +121,37 @@ function getSensorData(sensorId, timeInHours) {
         });
 }
 
-function computeAverage(SensorData){
-
+function getLatLng(context, zipCode, radius = 0.02) {
+    $.ajax({
+        url: 'http://maps.googleapis.com/maps/api/geocode/json',
+        data: {
+            "address" : zipCode
+        },
+        type: "GET",
+        dataType: 'json',
+        success: function(data) {
+            latlng = data.results[0].geometry.location;
+            console.log(latlng);
+            $.ajax({
+                url: 'http://api.spotcrime.com/crimes.json',
+                data: {
+                    lat: latlng.lat,
+                    lon: latlng.lng,
+                    radius: radius,
+                    key: '.',
+                    _: Date.now()
+                },
+                type: "GET",
+                dataType: 'jsonp',
+                success: function(crimeData){
+                    for (var i = 0; i < crimeData.crimes.length; ++i) {
+                        context.after('<tr></th><td>' + (i+1) + '</td><td>' + crimeData.crimes[i].type + '</td><td>' + crimeData.crimes[i].date + '</td><td><a href="' + crimeData.crimes[i].link + '">' + crimeData.crimes[i].address +'</a></td><td>' + '<a href="https://www.google.com/maps/@' + latlng.lat + ',' + latlng.lng + ',20z" target="_blank"' +
+                            '<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>' +
+                            '</a>' + '</td></tr>');
+                    }
+                }
+            });
+        }
+    });
 }
+
