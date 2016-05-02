@@ -50,11 +50,11 @@
                 <table class="table table-striped table-hover" id="myTable">
                     <thead class = "thead-inverse">
                     <tr>
-                        <th data-dyntable-column = "ID">ID</th>
-                        <th data-dyntable-column = "Email">Email</th>
-                        <th data-dyntable-column = "LastName">Last Name</th>
-                        <th data-dyntable-column = "FirstName">First Name</th>
-                        <th data-dyntable-column = "isAdmin">Admin Status</th>
+                        <th data-dyntable-column ="ID">ID</th>
+                        <th data-dyntable-column ="Email">Email</th>
+                        <th data-dyntable-column ="LastName">Last Name</th>
+                        <th data-dyntable-column ="FirstName">First Name</th>
+                        <th data-dyntable-column ="isAdmin">Admin Status</th>
                     </tr>
                     </thead>
                     <tbody>
