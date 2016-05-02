@@ -55,9 +55,11 @@ function checkLogin(PDO $dbc)
 {
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $rows = perform_query_select($dbc, "SELECT * FROM mitchko.ACCOUNTS WHERE `Email`=?", array($email => PDO::PARAM_STR));
-    $hash = hash('sha1', filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING) . $rows[0]['passwordSalt']);
+    $hash = hash('sha1',  $rows[0]['passwordSalt'] . filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING));
+    //print_r($rows[0]);
+    //print_r($hash);
     if (sizeof($rows) > 0) {
-        if (strcmp($hash, $rows[0]['password'])) {    // Do the password hashes match?
+        if (strcmp($hash, $rows[0]['password']) == 0) {    // Do the password hashes match?
             setLoginCookie($dbc, $rows[0]['ID'], $rows[0]['Email'], $rows[0]['LastName']);
             return true;
         }

@@ -139,39 +139,20 @@ if (!isloggedin()) {
                         </div>
                     </div>
                 </div>
-                <?php
-                $response = file_get_contents('http://ziptasticapi.com/'.$zipCode);
-				$obj = json_decode($response);
-				$city = $obj->city;
-				$state = $obj->state;
-				$city = strtolower($city);
-				$state = strtolower($state);
-				$checkers = True;
-				
-                $myChoice2 = "http://s3.spotcrime.com/cache/rss/".$state."-".$city.".xml";
-				$headers = get_headers($myChoice2, 1);
-				if ($headers[0] == 'HTTP/1.1 404 Not Found') {
-					$checkers = False;
-					$myChoice2 = "http://s3.spotcrime.com/cache/rss/".$city.".xml";
-				}			
-                $rss = simplexml_load_file($myChoice2);
-                $title = $rss->channel->title;
-                echo "<h5>$title</h5>";
-                $items = $rss->channel->item; # try, works some versions
-                if (!$items)
-                    $items = $rss->item; # works other versions
-				if (count($items) == 0) {
-					echo "There is no crime in your area";
-				}
-                foreach ($items as $item) {
-                    echo $item->pubDate . "<br>";
-                    echo '<a href="' . $item->link . '">' . $item->title . '</a><br>';
-                    echo $item->description . "<br>";
-                }
-                ?>
                 <div class="panel-body">
-                    <canvas id="canvas">
-                    </canvas>
+                    <table class="table" id="table1">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th>#</th>
+                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Address</th>
+                            <th>Map</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
 
                 <div class="panel-footer">
