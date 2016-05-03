@@ -11,6 +11,10 @@
 function doesUserOwnSensor(PDO $dbc, $sensorId, $userId)
 {
     if ($sensorId != null && $sensorId != false) {
+        $admin = perform_query_select($dbc, 'select * from mitchko.ACCOUNTS where `ID`=? and `isAdmin`=1', array($userId => PDO::PARAM_STR));
+        if(count($admin) > 0){
+            return true;
+        }
         $rows = perform_query_select($dbc, 'SELECT (AssociatedAccountID) FROM mitchko.Properties LEFT OUTER JOIN mitchko.Sensor ON `Properties`.`propertyID` = Sensor.`propertyid` WHERE sensorid=?', array($sensorId => PDO::PARAM_STR));
         if (count($rows) > 0) {
             if(strcmp($rows[0]['AssociatedAccountID'], $userId)== 0){
