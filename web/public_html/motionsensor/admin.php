@@ -1,10 +1,12 @@
 <?php
 
 @include "../../include/user.php";
-
+/*
 if(isloggedin(1)[0] == false){
     redirect('dashboard.php');
 }
+*/
+$passwordsMatch = true;
 
 ?>
 
@@ -95,5 +97,92 @@ if(isloggedin(1)[0] == false){
         </fieldset>
     </div>
 </div>
-
+<div class="container">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <h1>Add User</h1>
+            </div>
+        </div>
+    </div>
+    <div class="bs-docs-section">
+        <div class="row">
+            <div class="col-xs-6 col-md-4"></div>
+            <form class="form-horizontal col-xs-6 col-md-4" name = "addForm" onsubmit = "return validateForm()" action="../include/addUser.php" method="post" autocomplete="off">
+                <fieldset>
+                    <legend>Account</legend>
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <input type="email" class="form-control" id="email" placeholder="Email" name="email"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <input type="password" class="form-control" id="password" name="password"
+                                   placeholder="Enter Password" required
+                            >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <input type="password" class="form-control" id="password2" name="password2"
+                                   placeholder="Confirm Password" required
+                            >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control" id="first" name="first" placeholder="First Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control" id="last" name="last" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control" id="promo" name="promo" placeholder="Promo Code">
+                        </div>
+                    </div>
+                    <legend>Property</legend>
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control" id="addr" name="addr" placeholder="Street Address">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <input type="number" class="form-control" id="zip" name="zip" min="00001" max="99999" step="1" placeholder="Zip Code">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <button type="submit" class="btn btn-danger col-lg-12">Register</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
+</div>
 </body>
+
+<script>
+    function validateForm(){
+        if ($('[name = first]').val() == "" || $('[name = password]').val() == "" || $('[name = email]').val() == "" || $('[name = password2]').val() == "" || $('[name = zip]').val() == "" || $('[name = addr]').val() == "" ||$('[name = last]').val() == ""){
+            alert("Fill out the whole form please!");
+            return false;
+        }
+        else if ($('[name = password]').val() != $('[name = password2]').val()){
+            alert("Passwords don't match");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+</script>

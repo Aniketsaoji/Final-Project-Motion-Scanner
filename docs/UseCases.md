@@ -141,20 +141,6 @@ Display recent Crimes in Area
 ### Queries
 
 
-## 8. NSA Finder
-
-### Actor
-
-User
-
-### Pre-condition
-
-User is Authenticated
-
-### Post-condition
-
-Display Results for user
-
 ## 9. Report a Crime
 
 ### Actor
