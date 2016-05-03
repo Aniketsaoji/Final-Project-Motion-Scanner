@@ -15,32 +15,40 @@
 
 <body>
 
-<div class=dropdown>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Anti-Tickler Security</a>
+        </div>
 
-    <ul class="nav nav-tabs">
-        <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-               aria-expanded="false">
-                <h3>Services <span class="caret"></span></h3>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="test.html">Home</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="quote.html">Get a Quote</a></li>
-                <li><a href="help.html">Get Help</a></li>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="logout.php">Logout</a></li>
             </ul>
-        </li>
-    </ul>
-</div>
+        </div>
+    </div>
+</nav>
 <h1>Welcome, Admin!</h1>
 <div class="container">
     <div class="row">
         <div class="bs-component table-responsive">
             <h2>Users</h2>
-            <div class="bs-component table-responsive">
-                <table class="table table-striped table-hover " id="entries">
-                    <thead>
-                    <th data-dynatable-column="ID">Map</th>
+            <div class="panel-body">
+                <table class="table table-bordered table-hover table-striped" id="entries">
+                    <thead class="thead-inverse">
+                    <th data-dynatable-column="ID">ID</th>
+                    <th data-dynatable-column="Email">Email</th>
+                    <th data-dynatable-column="FirstName">First Name</th>
+                    <th data-dynatable-column="LastName">Last Name</th>
+                    <th data-dynatable-column="isAdmin">Admin Status</th>
+
                     </thead>
                     <tbody></tbody>
                 </table>
@@ -48,13 +56,34 @@
         </div>
     </div>
 </div>
-<h2>Change Admin Status</h2>
-<div class="col-lg-6 col-lg-offset-4">
-    <fieldset>
-        <form method="POST" action="../../include/adminScript.php">
-            <label for="admin">Enter the desired ID number</label><input type="text" id="admin"/><br>
-            <input type="submit" class="btn btn-lg" value="Submit">
-        </form>
-    </fieldset>
+<div class = "container">
+    <div class = "row">
+        <h2>Change Admin Status</h2>
+        <fieldset>
+            <form method = "POST" action = "../include/adminScript.php" name = "adminStatus">
+                <div class = "form-group">
+                    <label for = "adminID">User ID</label><br>
+                    <input type = "text" id = "adminID" name = "adminID" class = "form-control">
+                </div>
+                <button type = "submit" class = "btn btn-default">Submit</button>
+            </form>
+        </fieldset>
+    </div>
 </div>
+
+<div class = "container">
+    <div class = "row">
+        <h2>Delete User</h2>
+        <fieldset>
+            <form method = "POST" action = "../include/dropUser.php" name = "dropUser">
+                <div class = "form-group">
+                    <label for = "userID">User ID</label><br>
+                    <input type = "text" id = "userID" name = "userID" class = "form-control">
+                </div>
+                <button type = "submit" class = "btn btn-default">Submit</button>
+            </form>
+        </fieldset>
+    </div>
+</div>
+
 </body>
