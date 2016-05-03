@@ -14,7 +14,7 @@ function getChartColor(i) {
     return colors[i % colors.length];
 }
 
-function doLoad(zipCode, pid){
+function doLoad(zipCode, pid, chartId){
     var sensorData = [];
     if (zipCode != undefined) {
         makeCrime($('#table1 tr:last'), zipCode);
@@ -37,7 +37,7 @@ function doLoad(zipCode, pid){
                                 SensorData.push(movementData);
                             }
                         }
-                        makeChart(SensorData, document.getElementById("canvas").getContext("2d"));
+                        makeChart(SensorData, document.getElementById(chartId).getContext("2d"));
                     }
                 );
             }
@@ -52,7 +52,7 @@ function makeChart(SensorData, ctx) {
         var pts = [];
         for (var j = 0; j < SensorData[i].length; ++j) {
             if (i == 0) {
-                labels.push(SensorData[0][j].x == 0? "Past hour" : SensorData[0][j].x + " hours ago");
+                labels.push(SensorData[0][j].x == 0? "Past hour" : SensorData[0][j].x + " hour(s) ago");
             } else if (i == (SensorData.length - 1)) {
 
             }
