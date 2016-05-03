@@ -5,14 +5,14 @@ $(document).ready(function() {
     loadTable();
 });
 
-
 function loadTable(){
     $.ajax({
         url: '../include/table.php',
         success: function (data) {
-            console.log(data);
+
             data = JSON.parse(data);
-            $('#myTable').dynatable({
+            console.log(data);
+            $('#entries').dynatable({
                 dataset: {
                     records: data
                 }
