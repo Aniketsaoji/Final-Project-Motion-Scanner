@@ -14,11 +14,13 @@ $googleMapsAPI = 'http://maps.googleapis.com/maps/api/geocode/json?address=';   
 
 $properties;
 $user_id;
+$isAdmin = false;
 if (!isloggedin()) {
     header("Location: login.php");
     die();
 } else {
     $user_id = isloggedin(true);
+    $isAdmin = isloggedin(1);
     $properties = getUserProperties($user_id);
 }
 ?>
@@ -40,9 +42,9 @@ if (!isloggedin()) {
         if(isset($properties[0]['ZipCode'])){
         ?>
         $(document).ready(function () {
-            doLoad("<?php echo $properties[0]['ZipCode'] ?>", "<?php echo $properties[0]['propertyID'] ?>");
+            doLoad("<?php echo $properties[0]['ZipCode'] ?>", "<?php echo $properties[0]['propertyID'] ?>","");
             setTimeout(function(){
-                doLoad("<?php echo $properties[0]['ZipCode'] ?>", "<?php echo $properties[0]['propertyID'] ?>");
+                doLoad("<?php echo $properties[0]['ZipCode'] ?>", "<?php echo $properties[0]['propertyID'] ?>", "");
             }, 60000);
         });
         <?php
@@ -67,6 +69,9 @@ if (!isloggedin()) {
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="admin.php">Admin</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="logout.php">Logout</a></li>
             </ul>

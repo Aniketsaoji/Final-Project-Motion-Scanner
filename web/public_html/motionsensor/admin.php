@@ -2,7 +2,7 @@
 
 @include "../../include/user.php";
 
-if(!isloggedin(1)){
+if(isloggedin(1)[0] == false){
     redirect('dashboard.php');
 }
 
