@@ -1,3 +1,13 @@
+<?php
+
+@include "../../include/user.php";
+
+if(!isloggedin(1)){
+    redirect('dashboard.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
