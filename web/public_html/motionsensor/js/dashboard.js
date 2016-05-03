@@ -14,12 +14,12 @@ function getChartColor(i) {
     return colors[i % colors.length];
 }
 
-function doLoad(zipCode){
+function doLoad(zipCode, pid){
     var sensorData = [];
     if (zipCode != undefined) {
         makeCrime($('#table1 tr:last'), zipCode);
         $.get('data/getSensorData.php', {
-                propertyID: 1
+                propertyID: pid
             }, function (data, status) {
                 var sensorIDs = JSON.parse(data);
                 var Data = [];
