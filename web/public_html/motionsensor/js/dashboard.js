@@ -14,44 +14,43 @@ function getChartColor(i) {
     return colors[i % colors.length];
 }
 
-var debug;
-
-window.onload = function () {
-    getLatLng($('#table1 tr:last'), 11787);
+function doLoad(zipCode){
     var sensorData = [];
-    $.get('data/getSensorData.php', {
-            propertyID: 1
-        }, function (data, status) {
-            var sensorIDs = JSON.parse(data);
-            var Data = [];
-            for (var i = 0; i < sensorIDs.length; ++i) {
-                Data.push(getSensorData(sensorIDs[i], 24));
-            }
-            $.when.apply(null, Data).done(
-                function () {
-                    var SensorData = [];
-                    for (var i = 0; i < arguments.length; ++i) {
-                        var movementData = JSON.parse(arguments[i][0]);
-                        if (movementData.length > 0) {
-                            SensorData.push(movementData);
-                        }
-                    }
-                    makeChart(SensorData, document.getElementById("canvas").getContext("2d"));
+    if (zipCode != undefined) {
+        makeCrime($('#table1 tr:last'), zipCode);
+        $.get('data/getSensorData.php', {
+                propertyID: 1
+            }, function (data, status) {
+                var sensorIDs = JSON.parse(data);
+                var Data = [];
+                for (var i = 0; i < sensorIDs.length; ++i) {
+                    Data.push(getSensorData(sensorIDs[i], 24));
                 }
-            );
-        }
-    );
-};
+                $.when.apply(null, Data).done(
+                    function () {
+                        var SensorData = [];
+                        for (var i = 0; i < arguments.length; ++i) {
+                            var movementData = JSON.parse(arguments[i][0]);
+                            if (movementData.length > 0) {
+                                SensorData.push(movementData);
+                            }
+                        }
+                        makeChart(SensorData, document.getElementById("canvas").getContext("2d"));
+                    }
+                );
+            }
+        );
+    }
+}
 
 function makeChart(SensorData, ctx) {
-    debug = SensorData;
     var labels = [];
     var sets = [];
     for (var i = 0; i < SensorData.length; ++i) {
         var pts = [];
         for (var j = 0; j < SensorData[i].length; ++j) {
             if (i == 0) {
-                labels.push(SensorData[0][j].x + " hours ago");
+                labels.push(SensorData[0][j].x == 0? "Past hour" : SensorData[0][j].x + " hours ago");
             } else if (i == (SensorData.length - 1)) {
 
             }
@@ -121,7 +120,8 @@ function getSensorData(sensorId, timeInHours) {
         });
 }
 
-function getLatLng(context, zipCode, radius = 0.02) {
+function makeCrime(context, zipCode, radius = 0.02) {
+    console.log(zipCode);
     $.ajax({
         url: 'http://maps.googleapis.com/maps/api/geocode/json',
         data: {

@@ -9,16 +9,15 @@
 
 $zipCode = 02135;
 $spotCrimeAPI = 'http://api.spotcrime.com/crimes.json?radius=0.02&key=.&_=' . time();   // spot crime API => idiots, if you use the API key=. and supply the current timestamp they give you the data lol
-                                                                                        // append a lat and lng get parameter to make it work
+// append a lat and lng get parameter to make it work
 $googleMapsAPI = 'http://maps.googleapis.com/maps/api/geocode/json?address=';           // Simply append the zip code to get a nice response
 
 $properties;
 $user_id;
-$zipCode;
 if (!isloggedin()) {
     header("Location: login.php");
     die();
-} else{
+} else {
     $user_id = isloggedin(true);
     $properties = getUserProperties($user_id);
 }
@@ -29,12 +28,27 @@ if (!isloggedin()) {
     <meta charset="UTF-8">
     <title>AntiTickler Security</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
     <script src="js/jquery-2.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.dynatable.js"></script>
     <script src="js/main.js"></script>
     <script src="js/Chart.min.js"></script>
     <script src="js/dashboard.js"></script>
+    <script type="text/javascript">
+        <?php
+        if(isset($properties[0]['ZipCode'])){
+        ?>
+        $(document).ready(function () {
+            doLoad("<?php echo $properties[0]['ZipCode'] ?>");
+            setTimeout(function(){
+                doLoad("<?php echo $properties[0]['ZipCode'] ?>");
+            }, 60000);
+        });
+        <?php
+        }
+        ?>
+    </script>
     <link href="css/dashboard.css" rel="stylesheet">
     <link href="css/jquery.dynatable.css" rel="stylesheet">
 </head>
@@ -69,14 +83,11 @@ if (!isloggedin()) {
         <div class="col-lg-6">
             <?php
             $i = 1;
-            foreach($properties as $property) {
+            foreach ($properties as $property) {
                 ?>
                 <div class="panel panel-success">
                     <div class="panel-heading">
-                        Property
-                        <?php
-                        echo $i;
-                        ?>
+                        Your Property
                         <div class="pull-right">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-xs dropdown-toggle"
@@ -105,8 +116,7 @@ if (!isloggedin()) {
 
                     <div class="panel-footer">
                         <?php
-                            echo $property['StreetAddress'] . ", " . $property['ZipCode'];
-							$zipCode = $property['ZipCode'];
+                        echo $property['StreetAddress'] . ", " . $property['ZipCode'];
                         ?>
                     </div>
                 </div>
@@ -114,14 +124,25 @@ if (!isloggedin()) {
                 ++$i;
             }
             ?>
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    Report A Crime
+                    <div class="pull-right">
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                </div>
+            </div>
         </div>
         <div class="col-lg-6">
-            <div class="panel panel-success">
+            <div class="panel panel-default">
                 <div class="panel-heading">
                     Crime Near You
                     <div class="pull-right">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle"
+                                    data-toggle="dropdown">
                                 Properties
                                 <span class="caret"></span>
                             </button>
@@ -154,16 +175,11 @@ if (!isloggedin()) {
                         </tbody>
                     </table>
                 </div>
-
-                <div class="panel-footer">
-                </div>
             </div>
         </div>
+        <div class="row">
 
-        <div class="col-xs-6 col-sm-4">
         </div>
-    </div>
-    <div>
     </div>
 </div>
 </body>

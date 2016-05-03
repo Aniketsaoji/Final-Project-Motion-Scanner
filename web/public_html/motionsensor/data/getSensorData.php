@@ -23,7 +23,7 @@ function doesUserOwnSensor(PDO $dbc, $sensorId, $userId)
 
 function getSensorData($dbc, $sensorId, $timePeriod)
 {
-    $rows = perform_query_select($dbc, 'SELECT TIMESTAMPDIFF(HOUR , `motiontime`, NOW()) as x, count(`entry`) as y FROM mitchko.Security WHERE motiontime >= DATE_SUB(NOW(), INTERVAL ? HOUR ) AND sensorId=? group by HOUR(`motiontime`) order by x DESC', array($timePeriod => PDO::PARAM_LOB,$sensorId => PDO::PARAM_INT));
+    $rows = perform_query_select($dbc, 'SELECT TIMESTAMPDIFF(HOUR , `motiontime`, NOW()) as x, count(`entry`) as y FROM mitchko.Security WHERE motiontime >= DATE_SUB(NOW(), INTERVAL ? HOUR ) AND sensorId=? group by x order by x DESC', array($timePeriod => PDO::PARAM_LOB,$sensorId => PDO::PARAM_INT));
     return $rows;
 }
 
