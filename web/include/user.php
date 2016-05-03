@@ -19,23 +19,30 @@ function generateRandomString($length = 10)
     return $randomString;
 }
 
-function isloggedin($returnId=false)
+function isloggedin($returnId = false)
 {
     $dbc = connect_to_db("mitchko");
     if (isset($_COOKIE['session'])) {
         $browserCookie = $_COOKIE['session'];
         $rows = perform_query_select($dbc, "SELECT * FROM mitchko.ACCOUNTS WHERE `currentCookieTimestamp` >= DATE_SUB(NOW(), INTERVAL 30 MINUTE ) AND `currentCookie`=?", array($browserCookie => PDO::PARAM_STR));
         if (count($rows) > 0) {
-            if(strcmp($browserCookie, $rows[0]['currentCookie']) == 0){
-                
+            if (strcmp($browserCookie, $rows[0]['currentCookie']) == 0) {
+                if (strcmp(gettype($returnId), "integer") == 0) {
+                    return [$rows[0]['isAdmin'] == 1, $rows[0]['ID']];
+                }
                 return $returnId ? $rows[0]['ID'] : true;
             }
         }
     }
-    return false;
+    if (strcmp(gettype($returnId), "integer") == 0) {
+        return [false, false];
+    } else {
+        return false;
+    }
 }
 
-function updateSessionTimestamp($dbc, $id, $browserCookie){
+function updateSessionTimestamp($dbc, $id, $browserCookie)
+{
     perform_query_update($dbc, "UPDATE mitchko.ACCOUNTS SET `currentCookieTimestamp`=NOW() WHERE `ID`=? AND `currentCookie`=?", array($id, $browserCookie));
 }
 
@@ -55,7 +62,10 @@ function checkLogin(PDO $dbc)
 {
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $rows = perform_query_select($dbc, "SELECT * FROM mitchko.ACCOUNTS WHERE `Email`=?", array($email => PDO::PARAM_STR));
-    $hash = hash('sha1',  $rows[0]['passwordSalt'] . filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING));
+    if (count($rows) == 0) {
+        return false;
+    }
+    $hash = hash('sha1', $rows[0]['passwordSalt'] . filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING));
     //print_r($rows[0]);
     //print_r($hash);
     if (sizeof($rows) > 0) {
@@ -86,8 +96,10 @@ function doLogin($redirect = 'dashboard.php')
     if (loginVariablesSet()) {
         $dbc = connect_to_db("mitchko");
         if (checkLogin($dbc)) {
-            header("Location: " . $redirect);
+            redirect($redirect);
             die();
+        } else {
+            redirect('login.php?fail=1');
         }
     }
 }
@@ -110,7 +122,7 @@ function createUser(PDO $dbc, array $postVars)
     perform_query_insert_noparam($dbc, 'INSERT INTO ACCOUNTS (Email, LastName, FirstName, `password`, `passwordSalt`, isAdmin) VALUES(?,?,?,?,?,?)',
         array($postVars['email'], $postVars['lastName'], $postVars['firstName'], $passwordHash, $salt, $postVars['admin']));
     $rows = perform_query_select($dbc, 'SELECT (`ID`) FROM mitchko.ACCOUNTS WHERE `Email`=?', array($postVars['email'] => PDO::PARAM_STR));
-    if (count($rows) >0) {
+    if (count($rows) > 0) {
         return $rows[0]['ID'];
     } else {
         return false;
@@ -119,15 +131,17 @@ function createUser(PDO $dbc, array $postVars)
 
 function createProperty(PDO $dbc, array $postVars, $id)
 {
-    perform_query_insert_noparam($dbc, 'insert into mitchko.Properties (StreetAddress, AssociatedAccountID, ZipCode) values(?,?,?)', array($postVars['address'], $id, $postVars['zip']));
+    perform_query_insert_noparam($dbc, 'INSERT INTO mitchko.Properties (StreetAddress, AssociatedAccountID, ZipCode) VALUES(?,?,?)', array($postVars['address'], $id, $postVars['zip']));
 }
 
-function getUserProperties($id){
+function getUserProperties($id)
+{
     $dbc = connect_to_db("mitchko");
-    return perform_query_select($dbc, 'select * from mitchko.Properties where `AssociatedAccountID`=?', array($id => PDO::PARAM_STR));
+    return perform_query_select($dbc, 'SELECT * FROM mitchko.Properties WHERE `AssociatedAccountID`=?', array($id => PDO::PARAM_STR));
 }
 
-function getUserZip($id) {
+function getUserZip($id)
+{
     $dbc = connect_to_db("mitchko");
-    return perform_query_select($dbc, 'select ZipCode from mitchko.Properties where `AssociatedAccountID`=?', array($id => PDO::PARAM_STR));
+    return perform_query_select($dbc, 'SELECT ZipCode FROM mitchko.Properties WHERE `AssociatedAccountID`=?', array($id => PDO::PARAM_STR));
 }
