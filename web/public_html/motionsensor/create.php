@@ -82,7 +82,7 @@ if(is_array($POST_vars)){
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Anti-Tickler Security</a>
+            <a class="navbar-brand" href="index.php">Anti-Tickler Security</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -91,9 +91,8 @@ if(is_array($POST_vars)){
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Services<span
                             class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="test.html">Home</a></li>
-                        <li><a href="quote.html">Get a Quote</a></li>
-                        <li><a href="help.html">Get Help</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="quote.php">Get a Quote</a></li>
                     </ul>
                 </li>
             </ul>
