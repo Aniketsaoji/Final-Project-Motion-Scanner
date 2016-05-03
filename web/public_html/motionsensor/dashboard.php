@@ -40,9 +40,9 @@ if (!isloggedin()) {
         if(isset($properties[0]['ZipCode'])){
         ?>
         $(document).ready(function () {
-            doLoad("<?php echo $properties[0]['ZipCode'] ?>");
+            doLoad("<?php echo $properties[0]['ZipCode'] ?>", "<?php echo $properties[0]['propertyID'] ?>");
             setTimeout(function(){
-                doLoad("<?php echo $properties[0]['ZipCode'] ?>");
+                doLoad("<?php echo $properties[0]['ZipCode'] ?>", "<?php echo $properties[0]['propertyID'] ?>");
             }, 60000);
         });
         <?php
