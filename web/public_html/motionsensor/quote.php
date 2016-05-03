@@ -5,6 +5,15 @@ if(isloggedin()){
     redirect('dashboard.php');
 }
 
+
+$showDivFlag=false;
+
+if (isset($_POST['lol'])) {
+	$showDivFlag=true;
+	$quoteVal = $_POST['sqft']*0.3;
+}
+
+
 doLogin();
 // TODO: Add logout message when $_GET['logout'] is set
 ?>
@@ -47,11 +56,11 @@ doLogin();
     <div class="page-header">
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-6">
-                <h1>Login</h1>
+                <h1>Quote</h1>
             </div>
         </div>
     </div>
-    <div class="bs-docs-section">
+	<div class="bs-docs-section">
         <div class="row">
             <div class="col-xs-6 col-md-4"></div>
             <form class="form-horizontal col-xs-6 col-md-4" action="" method="post" >
@@ -59,36 +68,33 @@ doLogin();
                     <br>
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+                            <input type="number" class="form-control" id="sqft" placeholder="Square Feet" name="sqft" 
+								   value = "<?php 
+											if (isset($POST['sqft'])) {
+												echo $POST_['sqft'];
+											}else {
+												echo "";
+											}?>" required>
                         </div>
-                    </div>
-                    <div class="form-group">
+					</div>
+					<div id = resultsed class="form-group" 
+						 <?php 
+						 if ($showDivFlag===false) {
+						 ?> 
+						 style="display:none"
+						 <?php } ?>>
                         <div class="col-lg-12">
-                            <input type="password" class="form-control" id="password" name="password"
-                                   placeholder="Password" required
-                            >
+                            <input type="text" class="form-control" id="result" name="resulted" value ="$<?php echo $quoteVal; ?>">
                         </div>
                     </div>
-                    <div class="form-group">
+					<div class="form-group">
                         <div class="col-lg-12">
-                            <button type="submit" class="btn btn-primary col-lg-12">Submit</button>
+							<button type="submit" name = "lol" class="btn btn-primary col-lg-12">Submit</button>
                         </div>
                     </div>
-                </fieldset>
-            </form>
-        </div>
-        <?php
-            if(isset($_GET['fail'])){
-        ?>
-        <div class="row">
-            <div class="col-xs-6 col-md-4"></div>
-            <div class="col-xs-6 col-md-4 alert alert-dismissible alert-warning">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <h4>Warning!</h4>
-                <p>That isn't a valid account</p>
-            </div>
-        </div>
-        <?php } ?>
-    </div>
+				</fieldset>
+			</form>
+		</div>
+	</div>				
 </div>
-</body>
+	
