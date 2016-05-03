@@ -86,8 +86,19 @@ doLogin();
                     </div>
                 </fieldset>
             </form>
-            <div class="col-lg-3"></div>
         </div>
+        <?php
+            if(isset($_GET['fail'])){
+        ?>
+        <div class="row">
+            <div class="col-xs-6 col-md-4"></div>
+            <div class="col-xs-6 col-md-4 alert alert-dismissible alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4>Warning!</h4>
+                <p>That isn't a valid account</p>
+            </div>
+        </div>
+        <?php } ?>
     </div>
 </div>
 </body>
