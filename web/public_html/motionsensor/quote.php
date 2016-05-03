@@ -70,8 +70,8 @@ doLogin();
                         <div class="col-lg-12">
                             <input type="number" class="form-control" id="sqft" placeholder="Square Feet" name="sqft" 
 								   value = "<?php 
-											if (isset($POST['sqft'])) {
-												echo $POST_['sqft'];
+											if (isset($_POST['sqft'])) {
+												echo $_POST['sqft'];
 											}else {
 												echo "";
 											}?>" required>
