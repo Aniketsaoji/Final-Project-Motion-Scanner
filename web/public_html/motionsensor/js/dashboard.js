@@ -18,6 +18,8 @@ function doLoad(zipCode, pid){
     var sensorData = [];
     if (zipCode != undefined) {
         makeCrime($('#table1 tr:last'), zipCode);
+    }
+    if(pid != undefined){
         $.get('data/getSensorData.php', {
                 propertyID: pid
             }, function (data, status) {
