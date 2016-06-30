@@ -1,7 +1,7 @@
 # The Motion-izer
 
-This is an interactive web page that shows movement within our house. An Intel Edison collects motion data from motion sensors within our house, and updates a database every 5 seconds.
-This data is then applied to a 3d Model of our house<sup>i</sup> and is rendered in WebGL as a color coded house.  
+This is a webpage that shows movement within our house. An Intel Edison collects motion data from motion sensors within our house, and updates a database every 5 seconds.
+This data is then applied to a dashboard along with other useful security features such as crime in your area. 
 
 ### Authors
 
